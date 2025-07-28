@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first{
+            text-transform: capitalize;
+        }
+        .box-1{
+            width: 100px;
+            height: 150px;
+            border:1px solid black;
+             white-space: nowrap;
+             overflow: hidden;
+            text-overflow:clip;
+        }
+        .box2{
+            height: 200px;
+            width: 100px;
+            writing-mode: vertical-lr;
+            border: 1px solid black;
+        }
+        .box2 p{
+            text-orientation:upright;
+        }
+    </style>
+</head>
+<body>
+    <p class="box-1">
+         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id sed nobis pariatur expedita ipsa fuga nemo error, veniam quidem minus non, culpa minima alias, quisquam et! Aut tempora tempore cumque?
+    </p>
+    <p class="first">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id sed nobis pariatur expedita ipsa fuga nemo error, veniam quidem minus non, culpa minima alias, quisquam et! Aut tempora tempore cumque?
+    </p>
+    <div class="box2">
+        <p >
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id sed nobis pariatur expedita ipsa fuga nemo error, veniam quidem minus non, culpa minima alias, quisquam et! Aut tempora tempore cumque?
+    </p>
+    </div>
+    <div class="box-3" style="text-transform: capitalize;">
+        <h1 >Tops tech</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem repellendus modi reprehenderit minus necessitatibus aliquid suscipit atque, magni neque voluptates fuga alias soluta dolores ipsum minima autem iste tempore ratione.</p>
+    </div>
+</body>
+</html>
