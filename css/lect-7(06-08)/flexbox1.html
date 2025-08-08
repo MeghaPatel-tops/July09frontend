@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .container{
+            
+            padding: 10px;
+            width: 60%;
+            border: 5px solid black;
+        }
+        .header{
+            padding: 20px;
+            text-align: center;
+            background-color: aqua;
+        }
+        .center{
+            display: flex;
+            height: 400px;
+        }
+        .menu{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 2;
+            background-color: rgb(192, 108, 108);
+        }
+        .content{
+            padding: 10px;
+             display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-grow: 5;
+            background-color: orange;
+        }
+        .footer{
+            padding: 20px;
+            text-align: center;
+            background-color: aqua;
+        }
+        .inner{
+            height: 100px;
+            width: 40%;
+            text-align: center;
+            background-color: yellow;
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Header</div>
+        <div class="center">
+            <div class="menu">Menu</div>
+            <div class="content">
+                <div class="inner">card-1</div>
+                <div class="inner">card-2</div>
+                <div class="inner">card-3</div>
+            </div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>

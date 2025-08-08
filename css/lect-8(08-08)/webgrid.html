@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .main{
+             width: 100%;
+            height: 500px; 
+            border-radius: 30px;
+            display: grid;
+            gap: 20px;
+            grid-template-areas:
+                            'header header header header header header'
+                            'menu artical artical artical artical artical'
+                            'menu ads ads ads ads ads'
+                            'footer footer footer footer footer footer';
+        }
+       .header{
+            border-radius: 30px;
+            grid-area: header;
+            background-color: aqua;
+            text-align: center;
+       }
+       .menu{
+             border-radius: 30px;
+            grid-area: menu;
+            background-color: aqua;
+            text-align: center;
+       }
+       .artical{
+             border-radius: 30px;
+            grid-area: artical;
+            background-color: aqua;
+            text-align: center;
+       }
+       .ads{
+             border-radius: 30px;
+            grid-area: ads;
+            background-color: aqua;
+            text-align: center;
+       }
+       .footer{
+             border-radius: 30px;
+            grid-area: footer;
+            background-color: aqua;
+            text-align: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header"><h1>Header</h1></div>
+        <div class="menu"><h1>Navbar</h1></div>
+        <div class="artical"><h1>artical</h1></div>
+        <div class="ads"><h1>Ads</h1></div>
+        <div class="footer"><h1>Footer</h1></div>
+    </div>
+</body>
+</html>
