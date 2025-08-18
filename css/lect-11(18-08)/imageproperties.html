@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 200px;
+            width: 200px;
+        }
+        .img1{
+            filter:grayscale(100%) ;
+        }
+        div{
+            margin: 20px;
+            display: inline-block;
+        }
+        .img2{
+            filter: blur(2px);
+        }
+        .img3{
+            filter: brightness(89%);
+        }
+        .img4{
+            filter: contrast(60%);
+        }
+        .img5{
+            filter: drop-shadow(-10px -10px 5px green);
+        }
+        .img6{
+            filter: hue-rotate(60deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <img src="back.jpg" alt="" class="img1">
+        <h1>Grayscale</h1>
+    </div>
+      <div class="div">
+        <img src="back.jpg" alt="" class="img2">
+        <h1>Blur</h1>
+    </div>
+      <div class="div">
+        <img src="back.jpg" alt="" class="img3">
+        <h1>Brightness</h1>
+    </div>
+    <div class="div">
+        <img src="back.jpg" alt="" class="img4">
+        <h1>Contrass</h1>
+    </div>
+    <div class="div">
+        <img src="back.jpg" alt="" class="img5">
+        <h1> drop-shadow</h1>
+    </div>
+    <div class="div">
+        <img src="back.jpg" alt="" class="img6">
+        <h1>hue rotate</h1>
+    </div>
+</body>
+</html>
