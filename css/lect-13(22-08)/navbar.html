@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 10px solid gray;
+            padding: 20px;
+        }
+        nav{
+            background-color: black;
+            color: white;
+        }
+      
+        .listitem{
+            width: 100px;  
+            padding: 20px 0px;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            
+        }
+        .innerlist{
+
+            display: none;
+            position: absolute;
+            color: black;
+            background-color: white;
+            box-shadow: 5px 5px 5px black;
+            top: 60px;
+            z-index: 1;
+            padding: 0;
+            
+        }
+        .dropdown:hover .innerlist{
+            display: block;
+        }
+        .inlistitem{
+           
+            display: block;
+            width: 100px; 
+            padding: 20px 0px;
+             
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+               <li class="listitem">Item-1</li>
+               <li class="listitem">Item-2</li>
+               <li class="listitem">Item-3</li>
+               <li class="listitem dropdown">Item-4
+                   <ul class="innerlist">
+                        <li class="inlistitem">Home-1</li>
+                        <li class="inlistitem">Home-2</li>
+                        <li class="inlistitem">Home-3</li>
+                        <li class="inlistitem">Home-4</li>
+                   </ul>
+               </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

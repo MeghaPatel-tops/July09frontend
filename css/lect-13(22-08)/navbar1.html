@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: black;
+        }
+        nav{
+            color: white;
+        }
+        .item{
+            display: inline-block;
+            width: 100px;
+            padding: 20px 0px;
+            position: relative;
+            text-align: center;
+        }
+        .inlist {
+            display: none;
+            position: absolute;
+            background-color: white;
+            color: black;
+            text-align: left;
+            padding: 0;
+
+        }
+        .inlist .inlistitem{
+            display: block;
+            width: 100px;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .dropdown:hover .inlist {
+                display: block;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li class="item">item1</li>
+                <li class="item">item2</li>
+                <li class="item">item3</li>
+                <li class="item">item4</li>
+                <li class="item dropdown">item5
+                    <ul class="inlist">
+                        <li class="inlistitem">link1</li>
+                        <li class="inlistitem">link2</li>
+                        <li class="inlistitem">link3</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

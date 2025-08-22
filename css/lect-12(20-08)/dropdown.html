@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+           
+            border: 1px solid black;
+            width: 100%;
+        }
+        nav{
+            background-color: black;
+            color: white;
+        }
+     
+        .listitem{
+           
+            display: inline-block;
+            padding: 20px 0px;
+            border: 1px solid white;
+            width: 100px;
+            text-align: center;
+        }
+        .listitem:hover{
+            background-color: white;
+            color: black;
+        }
+        .dropdown:hover .sub{
+            display: block;
+        }
+        .sub{
+           
+            display: none;
+            position: absolute;
+            top: 60px;
+            background-color:white;
+            box-shadow: 3px 3px 5px gray;
+        }
+        .sub li{
+            color: black;
+            padding: 20px 0px;
+            width: 100px;
+            text-align: center;
+            display: block;
+            border-bottom: 1px solid black;
+            list-style: none;
+            z-index: 1;
+        }
+        .text-div{
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="main">
+                <li class="listitem">Item-1</li>
+                <li class="listitem">Item-2</li>
+                <li class="listitem">Item-3</li>
+                <li class="listitem">Item-4</li>
+                <li class="listitem dropdown">Item-5
+                    <ul class="sub">
+                        <li>Item-1</li>
+                        <li>Item-1</li>
+                        <li>Item-1</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="text-div">
+            <h1>Welcome to app</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, consequatur aliquam? Dolorum labore eaque repellendus earum et dignissimos? Quae veniam dignissimos delectus nemo esse commodi recusandae? Cum corporis ab vero!</p>
+        </div>
+    </div>
+</body>
+</html>
