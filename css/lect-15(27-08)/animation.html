@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+            background-color: red;
+             transition: width;
+             transition-delay: 1s;
+             transition-duration: 4s;
+             transition-timing-function: ease-in-out; 
+        }
+         .box2{
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+            background-color: red;
+            transition: transform; 
+            transition-delay: 1s;
+            transition-duration: 3s;
+            transition-timing-function: ease;
+            
+        }
+
+        .box1:hover{
+            width: 400px;
+        }
+        .box2:hover{
+            transform: translate(300px,0px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box1" id="box1">
+        
+    </div>
+    <div class="box2" id="box2"></div>
+    <!-- 
+    <div class="box" id="box3"></div>
+    <div class="box" id="box4"></div>
+      <div class="box" id="box5">box-5</div>
+        <div class="box" id="box6"></div> -->
+</body>
+</html>

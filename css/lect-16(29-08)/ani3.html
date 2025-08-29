@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 600px;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .box{
+            height: 400px;
+            width: 400px;
+            border:5px solid black;
+        }   
+        .inner{
+            
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            animation-name: moveObject;
+            animation-delay: 3s;
+            animation-duration: 6s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes moveObject {
+            0%{
+                transform: translate(300px,0px);
+            }
+            25%{
+                transform:translate(300px,300px) ;
+            }
+            50%{
+                transform: translate(0px,300px);
+            }
+            75%{
+                transform: translate(0px,0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

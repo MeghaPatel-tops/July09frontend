@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 600px;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .box{
+            position: relative;
+            height: 400px;
+            width: 400px;
+            border:5px solid black;
+            border-radius: 50%;
+            animation-name: moveObject;
+            animation-delay: 3s;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+        }   
+        img{
+            position: absolute;
+            top: -15px;
+            height: 100px;
+            width: 100px;
+            transform: rotate(-45deg);
+            
+
+        }
+        @keyframes moveObject {
+           
+             from{
+                transform: rotate(0deg);
+             }
+             to{
+                transform: rotate(360deg);
+             }
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        
+            <img src="car.png" alt="">
+        
+    </div>
+</body>
+</html>

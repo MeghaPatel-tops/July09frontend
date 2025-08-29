@@ -1,0 +1,11 @@
+The CSS @keyframes rule is used to control the steps in an animation sequence by defining CSS styles for points along the animation sequence.
+
+An animation is created by gradually changing from one set of CSS styles to another. During an animation, you can change the set of CSS styles many times.
+
+Specify when the style change will happen in percent, or with the keywords "from" and "to", which is the same as 0% and 100%. 0% is the beginning of the animation, 100% is when the animation is complete.
+
+@keyframes name {
+  keyframes-selector {css-styles;}
+  keyframes-selector {css-styles;}
+  ...
+}

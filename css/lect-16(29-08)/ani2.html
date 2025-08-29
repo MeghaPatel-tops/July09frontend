@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 500px;
+            width: 100%;
+            background-color: lightcoral;
+            animation-name: colorChanger;
+            animation-delay: 2s;
+            animation-duration: 6s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+        }
+        @keyframes colorChanger {
+            /* from{background-color: lightgreen;}
+            to{background-color: lightskyblue;} */
+            25%{
+                background-color: lightblue;
+            }
+            50%{
+                background-color: lightgreen;
+            }
+            75%{
+                background-color: lightslategray;
+            }
+            100%{
+                background-color: lightseagreen;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+</html>

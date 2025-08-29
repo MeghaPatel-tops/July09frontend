@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            margin: 20px;
+            background-color: red;
+            animation-name:colorChange ;
+            animation-delay: 2s;
+            animation-duration: 4s;
+            animation-timing-function: ease;
+            animation-iteration-count: 2;
+        }
+
+        @keyframes colorChange {
+            from{background-color: green;}
+            to{background-color: yellow;}
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="box1" id="box1">
+        
+    </div>
+  
+</body>
+</html>
