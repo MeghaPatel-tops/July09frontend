@@ -1,0 +1,69 @@
+$(document).ready(function () {
+    // To remove localstorage variable to show reminder popup
+    localStorage.removeItem('reminderShown');
+    var loginForm = $("#loginForm");
+    var forgetPasswordForm = $("#forgetPasswordForm");
+    loginForm.validate();
+    forgetPasswordForm.validate();
+    loginForm.on('submit', function (e) {
+        if ($(this).valid()) {
+            blockUIEnable();
+        }
+    });
+    forgetPasswordForm.on('submit', function (e) {
+        if ($(this).valid()) {
+            blockUIEnable();
+        }
+    });
+    var eyeIcon = $('#eye-icon');
+    var passwordInput = $('#password');
+    passwordInput.on('keyup', function () {
+        (passwordInput.val().length > 0) ? eyeIcon.show() : eyeIcon.hide();
+    });
+    eyeIcon.on('click', function (e) {
+        // toggle the type attribute
+        var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+        passwordInput.attr('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+        this.classList.toggle('fa-eye');
+    });
+    var collaborationSlider = $('#collaboration-slider');
+    if ($(window).width() >= 768) {
+        collaborationSlider.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: ["<div class='nav-button owl-prev'><i class='fa-solid fa-angle-left'></i></div>", "<div class='nav-button owl-next'><i class='fa-solid fa-angle-right'></i></div>"],
+            items: 4,
+            dots: false,
+            mouseDrag: true,
+            touchDrag: true,
+            pullDrag: true,
+            responsive : {
+                // breakpoint from 0 up
+                0 : {
+                    items : 2.3,
+                },
+                // breakpoint from 480 up
+                480 : {
+                    items : 3,
+                },
+                // breakpoint from 768 up
+                768 : {
+                    items : 4,
+                }
+            }
+        });
+    } else {
+        collaborationSlider.removeClass('owl-carousel owl-theme');
+    }
+    $("#forgetPasswordBtn").on('click', function () {
+        $(".login-section").hide();
+        $(".forget-password-section").show();
+    });
+    $("#LoginBtn").on('click', function () {
+        $(".login-section").show();
+        $(".forget-password-section").hide();
+    });
+});

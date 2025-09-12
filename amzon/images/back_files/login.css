@@ -1,0 +1,72 @@
+.login-bg{
+    margin: 0 50px;
+    background: url("/images/login/login-bg.png") top no-repeat;
+    background-size: cover;
+}
+.login-section, .forget-password-section{
+    background: #EDF5FB;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.44);
+}
+.blue-section{
+    margin-top: -60px;
+    margin-bottom: 60px;
+}
+.blue-section:after{
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    /*border: 1px solid rgba(0,0,0,.25);*/
+    border-right: 0;
+    border-bottom: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 22px;
+    background: var(--blue);
+}
+.blue-section p{
+    font-size: 18px;
+    margin-top: -16px;
+    border-radius: 2rem;
+}
+.login-section #eye-icon{
+    display: none;
+}
+.icon-section .icon-img{
+    width: 50px;
+}
+.forget-password-section{
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .login-bg {
+        margin: 0;
+        /*background: #fff;*/
+    }
+    .blue-section p{
+        font-size: 18px;
+        margin-top: -28px;
+        border-radius: 3rem;
+    }
+    .blue-section:after{
+        top: 45px;
+    }
+    .login-section{
+        background: #EDF5FB;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.44);
+    }
+    .scroll-carousel .item img{
+        width: 250px;
+        margin-right: 0.75rem;
+    }
+    .icon-section .icon-img{
+        width: 40px;
+    }
+}
+@media only screen and (max-width: 359px) {
+    .blue-section:after{
+        top: 68px;
+    }
+}

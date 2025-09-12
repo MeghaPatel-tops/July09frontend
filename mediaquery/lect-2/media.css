@@ -1,0 +1,81 @@
+@media screen and (max-width:600px) {
+
+
+    /* using display inline block property */
+
+    /* .nav-item{
+    padding: 20px 30px;
+    text-align: center;
+    display: block;
+    border-bottom: 1px solid white;
+    } */
+     .nav{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+     }
+     .nav-item{
+    padding: 20px 30px;
+    text-align: center;
+   border-bottom: 1px solid white;
+    }
+    .hero-div{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .hero-div h1{
+        font-size: 2em;
+    }
+
+    .four{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .box{
+    height: 200px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px white;
+    padding: 10px;
+    overflow: hidden;
+}
+.box img{
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.productCatlog h1{
+      font-size: 2em;
+      
+    
+}
+.service{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 400px;
+    
+}
+.probox{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+}
+.probox p{
+    display: block
+}
+.service img{
+    height: 50px;
+    width: 50px;
+    /* margin: auto; */
+    display: block;
+}
+     
+}

@@ -1,0 +1,201 @@
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function createCookie(name, value, days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+    } else var expires = "";
+
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function eraseCookie(name) {
+    createCookie(name, "", -1);
+}
+
+function blockUIEnable() {
+    $.blockUI({
+        message:
+            '<div class="d-flex justify-content-center align-items-center"><img src="/images/tops-icon.png" alt="Loader" width="40px" class="loader-img"></div>',
+        css: {
+            backgroundColor: 'transparent',
+            color: '#fff',
+            border: '0'
+        },
+        overlayCSS: {
+            opacity: 0.5
+        },
+        baseZ: 1990,
+    });
+}
+
+function blockUIDisable() {
+    $.unblockUI();
+}
+
+function resetFormWithValidator(formSelector) {
+    $(formSelector + ' input').removeClass('error');
+    $(formSelector + ' input').removeClass('valid');
+    $(formSelector + ' select').removeClass('error');
+    $(formSelector + ' select').removeClass('valid');
+    $(formSelector + ' textarea').removeClass('error');
+    $(formSelector + ' textarea').removeClass('valid');
+    $(formSelector).trigger("reset");
+}
+
+$("#backBtn").click(function () {
+    window.history.go(-1);
+});
+$("#fesDuePopup").on("shown.bs.modal", function () {
+    // Mark as shown
+    localStorage.setItem('reminderShown', 'true');
+});
+$(document).ready(function() {
+    if (!localStorage.getItem('reminderShown')) {
+        $('#fesDuePopup').modal('show')
+    }
+});
+$('.lbCourseList').on('click', function (e) {
+    blockUIEnable();
+    var pk = $(this).attr('data-pk');
+    var course = $(this).attr('data-course');
+    var user_name = $(this).attr('data-user_name');
+    var redirect = $(this).attr('data-redirect');
+    $.post($app_url + '/session', {'pk': pk, 'course': course, 'user_name': user_name}, function (data, status) {
+        if (data.flag) {
+            window.location.href = redirect ? redirect : ($app_url + '/course');
+        } else {
+            blockUIDisable();
+            toastr.error("Something went wrong!", "Error!", {timeOut: 3000});
+        }
+    });
+});
+
+window.addEventListener('blockUIEnable', (e) => {
+    blockUIEnable();
+});
+window.addEventListener('blockUIDisable', (e) => {
+    blockUIDisable();
+});
+
+window.addEventListener('showToastr', (e) => {
+    if (e.detail.type == 'error') {
+        toastr.error(e.detail.msg, "Error!", {timeOut: 3000});
+    } else {
+        toastr.success(e.detail.msg, "Success!", {timeOut: 3000});
+    }
+});
+
+$(document).on('click', '.lbListCategory', function () {
+    blockUIEnable();
+});
+
+function populateFormErrors(messages) {
+    $.each(messages, function (key, value) {
+        $('.' + key + '_error').text(value);
+    });
+}
+function globalFunctionStoreFiles(formObj, formData) {
+    let retObj = {errors: null, data: null,};
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: $app_url + '/store-files',
+        data: formData,
+        cache : false,
+        async: false,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+            blockUIEnable();
+        },
+        success: function (data) {
+            blockUIDisable();
+            if (data.flag) {
+                formObj.trigger("reset");
+                toastr.success(data.message, "Success!", {timeOut: 3000});
+            } else {
+                retObj.errors = data.data;
+                toastr.error(data.message, "Error!", {timeOut: 3000});
+            }
+        }
+    });
+    return retObj;
+}
+if (typeof jQuery.validator === 'function') {
+    jQuery.validator.setDefaults({
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            if (
+                element.parent().hasClass('input-group') ||
+                element.hasClass('select2') ||
+                element.attr('type') === 'checkbox' ||
+                element.parent().hasClass('dropify-wrapper')
+            ) {
+                error.insertAfter(element.parent());
+            } else if (element.hasClass('form-check-input')) {
+                error.insertAfter(element.parent().siblings(':last'));
+            } else {
+                error.insertAfter(element);
+            }
+
+            if (element.parent().hasClass('input-group')) {
+                element.parent().addClass('is-invalid');
+            }
+        },
+        highlight: function (element, errorClass, validClass) {
+            if ($(element).parent().hasClass('dropify-wrapper')){
+                $(element).parent().addClass('dropify-error');
+            }else{
+                $(element).addClass('error');
+            }
+            if ($(element).parent().hasClass('input-group')) {
+                $(element).parent().addClass('is-invalid');
+            }
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            if ($(element).parent().hasClass('dropify-wrapper')){
+                $(element).parent().removeClass('dropify-error');
+            }else{
+                $(element).removeClass('error');
+            }
+            if ($(element).parent().hasClass('input-group')) {
+                $(element).parent().removeClass('is-invalid');
+            }
+        }
+    });
+}
+$(document).ready(function(){
+    function percentageToDegrees(percentage) {
+        return percentage / 100 * 360
+    }
+    $(".progress-circle").each(function () {
+        var value = $(this).attr('data-value');
+        var left = $(this).find('.progress-left .progress-bar-circle');
+        var right = $(this).find('.progress-right .progress-bar-circle');
+        if (value > 0) {
+            if (value <= 50) {
+                // alert(value);
+                right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+            } else {
+                right.css('transform', 'rotate(180deg)')
+                left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+            }
+        }
+    });
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+});

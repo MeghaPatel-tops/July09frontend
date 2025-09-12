@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main{
+    max-width: 1400px;
+    padding: 10px;
+    border: 1px solid red;
+}
+.nav{
+    background-color: black;
+     display: flex;
+    flex-direction: row;
+}
+/* using display inline block property */
+/* .nav-item{
+    padding: 20px 30px;
+    text-align: center;
+    display: inline-block;
+} */
+ .nav-item{
+    padding: 20px 30px;
+    text-align: center;
+   
+}
+.nav-item a{
+    color: white;
+    text-decoration: none;
+}
+.nav-item:hover{
+    background-color: gray;
+}
+
+.hero-div{
+    position: relative;
+    top: 5px;
+    height: 500px;
+    width: 100%;
+    background-image: url('back.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.hero-div h1{
+      font-size: 4em;
+     color: white;
+     text-shadow: 3px 3px 5px black;
+}
+.four{
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    
+}
+.box{
+    height: 250px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px white;
+    padding: 10px;
+    overflow: hidden;
+}
+.box img{
+    height: 50px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.productCatlog{
+    height: auto;
+    width: 100%;
+    
+    margin-top: 10px;
+}
+.productCatlog h1{
+      font-size: 4em;
+     color: black;
+     text-shadow: 3px 3px 5px gray;
+     text-align: center;
+}
+.service{
+    display: flex;
+    overflow: auto;
+    scrollbar-width:thin;
+    gap: 30px;
+}
+.service img{
+    height: 150px;
+    width: 150px;
+}
+.probox{
+    display: flex;
+    gap: 50px;
+    justify-content: flex-start;
+}
+.probox p{
+    margin-top: 20px;
+    display: none;
+ }

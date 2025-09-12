@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            max-width: 1400px;
+            height: 500px;
+            background-color: aqua;
+        }
+        .main h1{
+            font-size: 5em;
+        }
+        @media screen and (max-width:700px){
+            .main{
+                background-color: gold;
+            }
+            .main h1{
+                font-size: 2.5em;
+            }
+        }
+         @media screen and (max-width:400px){
+            .main{
+                background-color: green;
+            }
+             .main h1{
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+            <h1>Welcome To Tops Technology</h1>
+    </div>
+</body>
+</html>

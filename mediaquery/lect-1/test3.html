@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            max-width: 1400px;
+            display: flex;
+            background-color: aqua;
+            gap: 50px;
+            padding: 50px 50px;
+        }
+        .box{
+            height: 200px;
+            width: 300px;
+            
+            background-color:blue;
+        }
+
+          @media screen and (max-width:600px){
+             .container{
+                 flex-direction: column;
+             }
+        }
+        /*
+         @media screen and (max-width:400px){
+             .container{
+                 
+             }
+             .box{
+                height: 100px;
+             }
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">1</div>
+        <div class="box">1</div>
+        <div class="box">1</div>
+    </div>
+</body>
+</html>
