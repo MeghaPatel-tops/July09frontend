@@ -1,0 +1,53 @@
+
+.main{
+    background-image: url('Images/hero.jpg');
+    animation:  hero-effect 1s ease-in ;
+}
+
+.titleh1{
+    font-size: 3em;
+    font-weight: 900;
+    color: white;
+    text-shadow: 3px 3px 5px rgb(106, 106, 233);
+    text-align: center;
+    -webkit-text-stroke-color:  rgb(106, 106, 233);
+    -webkit-text-stroke-width: 1px;
+   
+}
+.fontcolor{
+    color: rgb(106, 106, 233);
+}
+
+
+.subtitle{
+    color: rgb(106, 106, 233);
+     font-size: 4em;
+     font-weight: 900;
+     font-family: 'Tangerine', serif;
+     text-align: center;
+     margin-top: -100px;
+}
+
+
+
+
+@keyframes hero-effect {
+    to{
+        opacity: 1;
+    }
+    from{
+        opacity: 0;
+    }
+}
+
+
+.aboutimg{
+    height: 300px;
+    width: 300px;
+}
+
+@media screen and(max-width:400px){
+    .b-none{
+        border:none;
+    }
+}

@@ -1,0 +1,324 @@
+:root {
+    --brand: #2E3192;
+    --white: #ffffff;
+    --black: #1b1b1b;
+    --darkgray: #7a7a7a;
+    --gray: #c1c1c1;
+    --lightgray: #dadada;
+    --light: #f2f2f2;
+    --blue: #4C92BE;
+    --red: #EB5C5C;
+    --green: #54B669;
+    --yellow: #F9A825;
+    --orange: #FF7426;
+    --lightblue: #ECF5FB;
+}
+/*@font-face {*/
+/*    font-family: 'Segoe UI';*/
+/*    src: url('fonts/Segoe-UI.ttf');*/
+/*}*/
+body{
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--black);
+    font-weight: 400;
+    font-family: 'Segoe UI',sans-serif;
+}
+.text-black{
+    color: var(--black) !important;
+}
+.text-brand{
+    color: var(--brand);
+}
+.text-blue{
+    color: var(--blue);
+}
+.text-gray{
+    color:var(--gray);
+}
+.text-darkgray{
+    color: var(--darkgray);
+}
+.text-red{
+    color: var(--red);
+}
+.text-green{
+    color: var(--green);
+}
+.text-yellow{
+    color: var(--yellow);
+}
+.text-orange{
+    color: var(--orange);
+}
+.background-blue{
+    background: var(--blue);
+}
+.background-lightgray{
+    background: var(--lightgray);
+}
+.background-lightblue{
+    background: rgba(71, 159, 216, 0.1);
+}
+.background-light{
+    background: var(--light);
+}
+.background-red{
+    background-color: var(--red);
+}
+.background-green{
+    background-color: var(--green);
+}
+.fw-400{
+    font-weight: 400;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-700{
+    font-weight: 700;
+}
+.border-r5{
+    border-radius: 5px;
+}
+.border-r10{
+    border-radius: 10px;
+}
+.border-gray{
+    border-color: var(--gray) !important;
+}
+.border-darkgray{
+    border-color: var(--darkgray) !important;
+}
+.border-blue{
+    border-color: var(--blue) !important;
+}
+.border-lightblue{
+    border-color: var(--lightblue) !important;
+}
+.btn-brand{
+    background: linear-gradient(273.57deg, #2E3192 1.14%, #4C92BE 100%);
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+    border: none;
+    padding: 0.5rem 1.5rem;
+}
+.btn-brand:before {
+    height: 0;
+    width: 2px;
+}
+.btn-brand:hover, .btn-brand:focus {
+    box-shadow:  3px 3px 6px 0 rgba(255,255,255,.5),
+    -3px -3px 6px 0 rgba(116, 125, 136, .5),
+    inset -3px -3px 6px 0 rgba(255,255,255,.2),
+    inset 3px 3px 6px 0 rgba(0, 0, 0, .4) !important;
+    color: #fff;
+    border: none;
+}
+.btn-outline-brand{
+    background: var(--white);
+    color: var(--brand);
+    border-radius: 5px;
+    font-weight: 600;
+    border: 1px solid var(--brand);
+    padding: 0.5rem 1.5rem;
+}
+.btn-outline-brand:hover,.btn-outline-brand:focus{
+    background: var(--brand);
+    color: var(--white);
+    border: 1px solid var(--brand) !important;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: var(--blue);
+    outline: 0;
+    box-shadow: none;
+}
+.link-text{
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 600;
+}
+.link-text:hover{
+    color: var(--blue);
+    filter: contrast(140%);
+    text-decoration: none;
+}
+.dropdown-item:focus-visible{
+    outline: none;
+}
+.btn-close{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.accordion-button:focus, .btn:focus, .btn-close:focus{
+    border: none;
+    box-shadow: none;
+}
+.list-style-none{
+    list-style-type: none;
+}
+/*owl navigation css*/
+button.owl-prev{
+    position: absolute;
+    top: 45%;
+    left: -2%;
+    z-index: 9;
+    border: 2px var(--brand) solid !important;
+    background: #fff!important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 100%!important;
+    font-size: 24px!important;
+}
+button.owl-next{
+    position: absolute;
+    top: 45%;
+    right: -2%;
+    z-index: 9;
+    border: 2px var(--brand) solid !important;
+    background: #fff!important;
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 100%!important;
+    font-size: 24px!important;
+
+}
+button.owl-next i, button.owl-prev i{
+    font-size: 18px !important;
+    line-height: 2rem !important;
+    vertical-align: middle !important;
+    /*top: 2px !important;*/
+    /*position: absolute !important;*/
+    /*right: 18px;*/
+}
+.owl-theme .owl-nav [class*=owl-],.owl-theme .owl-nav [class*=owl-]:hover{
+    background: transparent ;
+    color: var(--brand);
+    font-size: 18px;
+    margin: -1px;
+}
+
+.owl-theme .owl-nav .disabled [class*=owl-]{
+    color: var(--gray);
+}
+.owl-theme .owl-nav .disabled{
+    opacity: 1;
+    border-color: var(--gray) !important;
+}
+/*owl navigation css*/
+
+
+/*footer css*/
+.footer{
+    background: #EDF5FB;
+}
+.footer .footer-ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.footer .footer-ul li{
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    word-break: break-word;
+}
+.footer .footer-ul li a{
+    text-decoration: none;
+    color: var(--black);
+}
+.footer .footer-ul li a:hover{
+    color: var(--blue);
+}
+.footer h6.text-brand{
+    font-size: 20px;
+}
+.footer .col-md-3:nth-child(n+2){
+   border-left: 1px solid var(--blue);
+}
+.footer .location-title{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--darkgray);
+}
+.location-tabs{
+    opacity: 0.7;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--black);
+}
+.footer .location-tabs:hover{
+    background: #D6EFFF;
+    opacity: 1;
+    color: var(--black);
+}
+.footer .social-logo {
+    width: 35px;
+}
+
+.fixed-footer{
+    background: var(--blue);
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 990;
+}
+
+/*===== Whatsapp Floating Icon =====*/
+.whatsapp-float-btn
+{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:37px;
+    left:20px;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+}
+
+.whatsapp-float-btn img {
+    max-width: none !important;
+}
+@media only screen and (max-width: 768px) {
+    .footer .footer-ul li{
+        margin-top: 0.35rem;
+        margin-bottom: 0.35rem;
+    }
+    .footer .col-md-3:nth-child(n+2){
+        border: none;
+    }
+    .footer .location-tabs{
+        font-weight: 600;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid var(--gray);
+        border-radius: 5px;
+        text-decoration: none;
+        color: var(--black);
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .footer .social-logo {
+        width: 25px;
+    }
+    .fixed-footer .bar-icon{
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+    }
+    .fixed-footer .bar-icon:nth-child(1){
+        border-right: 2px solid #fff;
+    }
+    .footer .copy-right-text{
+        font-size: 14px;
+    }
+}

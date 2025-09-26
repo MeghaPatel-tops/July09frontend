@@ -1,0 +1,382 @@
+.home-banner{
+    background: url('/images/home/home-banner.jpg') no-repeat center;
+    background-size: cover;
+}
+.home-banner .btn-brand{
+    border: 1px solid var(--white);
+}
+.home-banner .btn-brand:hover{
+    border: 1px solid transparent;
+}
+.home-banner .numbers-row{
+    background: var(--light);
+    border-radius: 10px;
+}
+.home-banner .numbers-row .col-md-8{
+    border-radius: 0 10px 10px 0;
+}
+.home-banner .numbers-row .col-md-8 .col-md-3:nth-child(n+2){
+    border-left: 2px solid var(--gray);
+}
+.home-banner .numbers-row .col-md-4{
+    position: relative;
+    border-radius: 10px 0px 0px 10px;
+    background: var(--blue);
+    z-index: 1;
+}
+.home-banner .numbers-row .col-md-4 .badge-img{
+    width: 220px;
+    margin: -25px 0px
+}
+.home-banner .numbers-row .col-md-4::before{
+    content: "";
+    position: absolute;
+    left: 100%;
+    border-style: solid;
+    border-width: 70px 0px 70px 50px;
+    border-color: transparent var(--blue) transparent ;
+    z-index: -1;
+}
+
+.placement-section .placement-inner{
+    /*background: rgba(214, 239, 255, 0.3);*/
+    background: url('/images/placement-inner-bg.png') center right no-repeat;
+    background-size: cover;
+    border: 1px solid #3785D7;
+    border-radius: 10px;
+}
+.placement-section .placement-inner .hr-gradient:before{
+    content: "";
+    background: linear-gradient(90deg, #ADADAD 0%, rgba(217, 217, 217, 0) 88.4%);
+    height: 2px;
+    width: 100%;
+    display: block;
+}
+.placement-section .placement-inner .job-div{
+    border-right: 2px solid var(--gray);
+}
+
+.placement-initiatives .nav-pills .nav-link{
+    color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    font-weight: 600;
+}
+.placement-initiatives .nav-pills .nav-link:hover{
+    background: var(--light);
+}
+.placement-initiatives .nav-pills .nav-link.active, .gallery-section .nav-pills .show>.nav-link{
+    background: var(--blue);
+    color: var(--white);
+}
+.placement-initiatives .initiative-tab-content .registration-form, #registrationForm .registration-form{
+    background: linear-gradient(180deg, rgba(141, 188, 218, 0.2) 0%, rgba(85, 172, 238, 0.2) 50.86%, rgba(235, 246, 255, 0.2) 100%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+}
+.placement-initiatives .initiative-tab-content .form-banner{
+    background: url('/images/home/jobfest-form-header.png') no-repeat center;
+    background-size: cover;
+    border-radius: 0.45rem 0.45rem 0px 0px;
+}
+.placement-initiatives .initiative-tab-content ul {
+    list-style: none; /* Remove default bullets */
+}
+.placement-initiatives .initiative-tab-content ul li::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: var(--blue); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    font-size: 30px; /* If you want it to be bold */
+    line-height: 20px;
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1.3rem; /* Also needed for space (tweak if needed) */
+    margin-left: -1.3rem; /* Also needed for space (tweak if needed) */
+    position: relative;
+    top: 3px;
+}
+
+.valuable-articles .article-card{
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+}
+.valuable-articles .article-img{
+    border-radius: 10px 10px 0 0;
+}
+.valuable-articles .article-card:hover{
+    background: #EBF6FF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/*infinite slider css*/
+@keyframes logoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+#companies-logo .logo-slider {
+    /*background: white;*/
+    /*box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);*/
+    height: 200px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+#companies-logo .logo-slider::before, #companies-logo .logo-slider::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    height: 200px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+#companies-logo .logo-slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+#companies-logo .logo-slider::before {
+    left: 0;
+    top: 0;
+}
+#companies-logo .logo-slider .slide-track {
+    animation: logoScroll 40s linear infinite;
+    display: flex;
+    width: calc(250px * 14);
+}
+#companies-logo .logo-slider .logo-slide {
+    height: 200px;
+    width: 250px;
+    /*filter: grayscale(1);*/
+}
+/*infinite slider css*/
+
+#collaboration-slider .collaboration-logo{
+    width: auto;
+    height: 100%;
+}
+.courses-section .search-clear{
+    position: absolute;
+    top: 11px;
+    right: 38px;
+    opacity: .6;
+    display: none;
+    cursor: pointer;
+}
+.courses-section{
+    background: url('/images/home/courses-bg.png') no-repeat center;
+    background-size: cover;
+}
+.courses-section .btn-brand, .courses-section .form-control{
+    border-radius: 50px;
+    text-indent: 5px;
+}
+.courses-section .course-namecard{
+    box-shadow:0px 3px 8px rgba(0, 0, 0, 0.161);
+    border-radius: 10px;
+    border-color: var(--light);
+    text-decoration: none;
+    color: var(--brand);
+    font-weight: 500;
+    border-bottom: 5px solid transparent;
+}
+.courses-section .course-namecard:hover {
+    border-bottom: 5px solid var(--blue);
+}
+.courses-section .v-course-tab.nav-pills .nav-link{
+    color: var(--brand);
+    background-color: transparent;
+    font-weight: 400;
+    border-bottom: 1px solid var(--gray);
+    border-radius: 0;
+    padding: 0.75rem;
+}
+.courses-section .v-course-tab.nav-pills .nav-link:last-child{
+    border-bottom: none;
+}
+.courses-section .v-course-tab.nav-pills .nav-link:hover{
+    color: var(--blue);
+    background-color: transparent;
+    font-weight: 400;
+}
+.courses-section .v-course-tab.nav-pills .nav-link.active, .courses-section .v-course-tab.nav-pills .show>.nav-link{
+    color: var(--brand);
+    background-color: transparent;
+    font-weight: 700;
+}
+.courses-section #course-tab {
+    background: #D6EFFF;
+    border-radius: 10px;
+}
+.courses-section #course-tab .nav-item .nav-link{
+    color: var(--brand);
+    font-weight: 700;
+    padding: 0.5rem 2rem ;
+    position: relative;
+}
+.courses-section #course-tab .nav-item .nav-link.active{
+    background: var(--brand);
+    color: var(--white);
+    border-radius: 10px;
+}
+.courses-section #course-tab .nav-item .nav-link.active::after{
+    content: "";
+    position: absolute;
+    right: 45%;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0px 10px;
+    border-color: var(--brand) transparent var(--brand) ;
+    z-index: 198;
+}
+
+.nsdc-certificate .nsdc-img{
+    width: 50%;
+}
+
+.CTA-section{
+    background: url('/images/home/cta-bg.png') no-repeat center;
+    background-size: cover;
+}
+
+.gallery-section .nav-pills .nav-link{
+    color: var(--darkgray);
+    /*border: 1px solid var(--blue);*/
+    /*border-radius: 5px;*/
+    font-weight: 600;
+}
+.gallery-section .nav-pills .nav-link:hover{
+    color: var(--black);
+}
+.gallery-section .nav-pills .nav-link.active, .gallery-section .nav-pills .show>.nav-link{
+    color: var(--blue);
+    background: transparent;
+}
+.gallery-section .gallery-img{
+    width: 100%;
+    height: auto;
+    /*border: 1px solid var(--blue);*/
+    /*border-radius: 10px;*/
+    cursor: zoom-in;
+}
+
+.blog-section .card{
+    box-shadow: 4px 4px 31px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: 1px solid #C1C1C1;
+}
+.flipster__button{
+    margin: unset;
+    top:40%;
+}
+.flipster__button svg {
+    width: 1rem;
+}
+#placementForm .form-banner{
+    background: url('/images/home/jobfest-form-header.png') no-repeat center;
+    background-size: cover;
+    border-radius: 0.5rem 0.5rem 0px 0px;
+}
+/*.collaboration-section .collaboration-img{*/
+/*    height: 100%;*/
+/*    width: auto !important;*/
+/*    object-fit: cover;*/
+/*}*/
+@media only screen and (max-width: 768px) {
+    .home-banner{
+        background: url('/images/home/mobile-home-banner.jpg') no-repeat top;
+        background-size: contain;
+    }
+    .home-banner .numbers-row .col-md-4::before{
+        display: none;
+    }
+    .home-banner .numbers-row{
+        width: 95%;
+        margin: auto;
+    }
+    .home-banner .numbers-row .col-md-4{
+        border-radius: 10px 10px 0px 0px;
+    }
+    .home-banner .numbers-row .col-md-8 .col-md-3:nth-child(n+2){
+        border: none;
+    }
+    .home-banner .numbers-row .col-md-8 .col-md-3:nth-child(2n-1){
+        border-right: 1px solid var(--gray);
+        border-left: none;
+    }
+    .home-banner .numbers-row .col-md-8 .col-md-3:nth-child(n+3){
+        border-top: 1px solid var(--gray);
+    }
+    .home-banner .numbers-row .col-md-4 .badge-img{
+        width: 120px;
+        margin-top: -50px;
+        margin-bottom: 15px;
+    }
+
+    .placement-initiatives .registration-form, .courses-section .course-search, .placement-section .placement-inner .hr-gradient:before{
+        display: none;
+    }
+    .placement-section .placement-inner .job-div{
+        border:none;
+    }
+    .placement-section img.placement-banner{
+        border-radius: 10px 10px 0 0;
+    }
+    .courses-section #course-tab .nav-item .nav-link{
+        padding: 0.5rem 0.75rem ;
+    }
+    .initiative-tab-content .cta-div{
+        justify-content: space-evenly;
+    }
+    .nsdc-certificate .nsdc-img{
+        width: 80%;
+    }
+    .gallery-section .nav-pills ,.placement-initiatives .nav-pills{
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .gallery-section .nav-pills::-webkit-scrollbar, .placement-initiatives .nav-pills::-webkit-scrollbar{
+        display: none;
+    }
+    .gallery-section .nav-pills .nav-link, .placement-initiatives .nav-pills .nav-link{
+        /*color: rgba(56,56,56,.85);*/
+        margin-bottom: 0;
+        /*border-bottom: 2px solid transparent!important;*/
+        white-space: nowrap;
+    }
+    .course-item-accordion .accordion-item{
+        background-color:transparent !important;
+        border:none;
+    }
+    .course-item-accordion .course-item-mobile{
+        border-bottom: 1px solid var(--gray);
+    }
+    .course-item-accordion .course-item-mobile a{
+        text-decoration: none;
+        color: var(--brand);
+    }
+    .course-item-accordion .accordion-button:focus{
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    .course-item-accordion .accordion-button{
+        border-radius: 5px !important;
+        border-bottom: 2px solid var(--light);
+    }
+    .course-item-accordion .accordion-button:not(.collapsed){
+        color: var(--brand);
+        background: var(--white);
+        border: 1px solid var(--blue);
+    }
+    .course-item-accordion .accordion-button:not(.collapsed)::after{
+        background-image: var(--bs-accordion-btn-icon);
+    }
+    .placement-section .placement-inner {
+        background: rgba(214, 239, 255, 0.3);
+    }
+}

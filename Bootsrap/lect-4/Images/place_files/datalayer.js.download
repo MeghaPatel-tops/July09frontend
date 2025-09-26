@@ -1,0 +1,225 @@
+var CUSTOM_EVENT = "custom_event";
+var FORM_SUBMIT_EVENT = "ec_form_submit";
+var CLICK_EVENT_ACTION = "Click";
+var SEND_INQUIRY_CATEGORY = "Send Inquiry";
+var UNKNOWN_SOURCE = 'Unknown Source';
+var CONTACT_CLICKED_CATEGORY = "Phone Number Clicked";
+var WEBINAR_CATEGORY = "Webinar";
+var WEBINAR_MENU_LABEL = "Webinar Menu";
+var ENROLL_AND_JOIN_LABEL = "Enroll & Join for Free";
+var WEBINAR_JOIN_LABEL = "Join Webinar Button";
+var WEBINAR_INTRO_VIDEO = "Webinar Intro Video Link Click";
+var WEBINAR_REGISTER_PAGE = "Webinar Register Page";
+var WEBINAR_REGISTER_SUCCESS = "Webinar Register Success";
+
+function pushDataLayerData(dataLayerData) {
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push(function () {
+        this.reset();
+    });
+    dataLayer.push(dataLayerData);
+    return dataLayer;
+}
+
+function getAllDataAttrArr(selector) {
+    var prev_page = document.referrer;
+    let dataResults = $(selector).map(function () {
+        let o = this;
+        return Object.keys(o.dataset).reduce(function (c, v) {
+            c[v] = o.dataset[v];
+            return c;
+        }, {})
+    }).get()[0];
+    dataResults['event'] = CUSTOM_EVENT;
+    dataResults['eventAction'] = CLICK_EVENT_ACTION;
+    dataResults['previous_page'] = prev_page ? prev_page : 'N/A';
+    return dataResults;
+}
+
+if ($(".dl-registered-contact").length > 0) {
+    $(document).on('click', '.dl-registered-contact', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = CONTACT_CLICKED_CATEGORY;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['eventLabel'] = (_ta_type ? _ta_type : 'Organic') + '-' + dataResults['label'];
+        dataResults['course_name'] = dataResults['course_name'] ? dataResults['course_name'] : 'N/A';
+        dataResults['course_category'] = dataResults['course_category'] ? dataResults['course_category'] : 'N/A';
+        dataResults['inquiry_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['label'];
+        pushDataLayerData(dataResults);
+    });
+}
+
+if ($(".dl-contact-location").length > 0) {
+    $(document).on('click', '.dl-contact-location', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = CONTACT_CLICKED_CATEGORY;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['eventLabel'] = (_ta_type ? _ta_type : 'Organic') + '-' + dataResults['label'];
+        dataResults['course_name'] = dataResults['course_name'] ? dataResults['course_name'] : 'N/A';
+        dataResults['course_category'] = dataResults['course_category'] ? dataResults['course_category'] : 'N/A';
+        dataResults['inquiry_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['label'];
+        pushDataLayerData(dataResults);
+    });
+}
+
+if ($(".dl-webinar-header").length > 0) {
+    $(document).on('click', '.dl-webinar-header', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = WEBINAR_CATEGORY;
+        dataResults['eventLabel'] = WEBINAR_MENU_LABEL;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['course_name'] = dataResults['title'] ? dataResults['title'] : 'N/A';
+        dataResults['course_category'] = WEBINAR_CATEGORY;
+        dataResults['traffic_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['title'];
+        pushDataLayerData(dataResults);
+        return true;
+    });
+}
+
+if ($(".dl-webinar-enroll-join").length > 0) {
+    $(document).on('click', '.dl-webinar-enroll-join', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = WEBINAR_CATEGORY;
+        dataResults['eventLabel'] = ENROLL_AND_JOIN_LABEL;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['course_name'] = dataResults['title'] ? dataResults['title'] : 'N/A';
+        dataResults['course_category'] = WEBINAR_CATEGORY;
+        dataResults['traffic_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['title'];
+        pushDataLayerData(dataResults);
+        return true;
+    });
+}
+
+if ($(".dl-webinar-join").length > 0) {
+    $(document).on('click', '.dl-webinar-join', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = WEBINAR_CATEGORY;
+        dataResults['eventLabel'] = WEBINAR_JOIN_LABEL;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['course_name'] = dataResults['title'] ? dataResults['title'] : 'N/A';
+        dataResults['course_category'] = WEBINAR_CATEGORY;
+        dataResults['traffic_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['title'];
+        delete dataResults['bsTarget'];
+        delete dataResults['bsToggle'];
+        pushDataLayerData(dataResults);
+        return true;
+    });
+}
+
+if ($(".dl-webinar-video").length > 0) {
+    $(document).on('click', '.dl-webinar-video', function () {
+        var _ta_type = readCookie('_ta_type');
+        dataResults = getAllDataAttrArr(this);
+        dataResults['eventCategory'] = WEBINAR_CATEGORY;
+        dataResults['eventLabel'] = WEBINAR_INTRO_VIDEO;
+        dataResults['eventSource'] = dataResults['source'] ? dataResults['source'] : UNKNOWN_SOURCE;
+        dataResults['course_name'] = dataResults['title'] ? dataResults['title'] : 'N/A';
+        dataResults['course_category'] = WEBINAR_CATEGORY;
+        dataResults['traffic_type'] = _ta_type ? _ta_type : 'Organic';
+        delete dataResults['source'];
+        delete dataResults['title'];
+        pushDataLayerData(dataResults);
+        return true;
+    });
+}
+
+function inquiryData(dataResults) {
+    var prev_page = document.referrer;
+    dataResults['event'] = CUSTOM_EVENT;
+    dataResults['eventCategory'] = SEND_INQUIRY_CATEGORY;
+    dataResults['eventAction'] = CLICK_EVENT_ACTION;
+    dataResults['previous_page'] = prev_page ? prev_page : 'N/A';
+    sendAnalyticsData(dataResults);
+    pushDataLayerData(dataResults);
+    return true;
+}
+
+function inquiryUserData(dataResults) {
+    dataResults['event'] = FORM_SUBMIT_EVENT;
+    pushDataLayerData(dataResults);
+    return true;
+}
+
+function dlWebinarRegisterSuccess(WEBINAR_TITLE = null) {
+    var prev_page = document.referrer;
+    var _ta_type = readCookie('_ta_type');
+    dataResults = [];
+    dataResults['event'] = CUSTOM_EVENT;
+    dataResults['eventCategory'] = WEBINAR_CATEGORY;
+    dataResults['eventAction'] = CLICK_EVENT_ACTION;
+    dataResults['eventLabel'] = WEBINAR_REGISTER_SUCCESS;
+    dataResults['eventSource'] = WEBINAR_REGISTER_PAGE;
+    dataResults['course_name'] = WEBINAR_TITLE ? WEBINAR_TITLE : 'N/A';
+    dataResults['course_category'] = WEBINAR_CATEGORY;
+    dataResults['traffic_type'] = _ta_type ? _ta_type : 'Organic';
+    dataResults['previous_page'] = prev_page ? prev_page : 'N/A';
+    pushDataLayerData(dataResults);
+    ga('send', {
+        hitType: 'event',
+        event: dataResults['event'],
+        eventCategory: dataResults['eventCategory'],
+        eventAction: dataResults['eventAction'],
+        eventLabel: dataResults['eventLabel'],
+        eventsource: dataResults['eventsource'],
+        course_name: dataResults['course_name'],
+        course_category: dataResults['course_category'],
+        traffic_type: dataResults['traffic_type'],
+        previous_page: dataResults['previous_page'],
+    });
+    return true;
+}
+
+function sendAnalyticsData(dataResults) {
+    ga('send', {
+        hitType: 'event',
+        event: CUSTOM_EVENT,
+        eventCategory: SEND_INQUIRY_CATEGORY,
+        eventAction: (dataResults['eventLabel'] == 'Ad Inquiry') ? 'Paid Form Submission' : 'Organic Form Submission',
+        eventLabel: dataResults['eventLabel'],
+        eventsource: dataResults['eventsource'],
+        inquiry_type: dataResults['inquiry_type'],
+        course_category: dataResults['course_category'],
+        course_name: dataResults['course_name'],
+        previous_page: dataResults['previous_page'],
+    });
+    return true;
+}
+
+function sendTawkAnalyticsData(course_name = 'N/A', course_category = 'N/A', source = 'Tawk') {
+    var prev_page = document.referrer;
+    var utm_source = readCookie('utm_source');
+    var utm_medium = readCookie('utm_medium');
+    var eventAction, eventLabel;
+    eventAction = eventLabel = 'Organic ' + source + ' Form Submission';
+    if ((utm_source != null && (utm_source.toLowerCase() == 'google' || utm_source.toLowerCase() == 'facebook')) && (utm_medium != null && utm_medium.toLowerCase() == 'cpc')) {
+        eventAction = eventLabel = 'Paid ' + source + ' Form Submission';
+    }
+    ga('send', {
+        hitType: 'event',
+        event: CUSTOM_EVENT,
+        eventCategory: SEND_INQUIRY_CATEGORY,
+        eventAction: eventAction,
+        eventLabel: eventLabel,
+        eventsource: source,
+        inquiry_type: source,
+        course_category: course_category,
+        course_name: course_name,
+        previous_page: prev_page ? prev_page : 'N/A',
+    });
+    return true;
+}
