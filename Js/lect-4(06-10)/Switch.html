@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc(choice){
+             let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+
+            num1 = Number(num1);
+            num2 = Number(num2);
+            switch(choice){
+                case '+':
+                    str=`addition = ${num1+num2}`;
+                break;  
+                case '-':
+                    str="sub= "+ (num1-num2);
+                break;
+                 case '*':
+                    str="mul= "+ (num1*num2);
+                break;
+                 case '/':
+                    str="div= "+ (num1/num2);
+                break;
+                 case '%':
+                    str="rem= "+ (num1%num2);
+                break;
+                default:
+                    str="Wrong Choice";
+                break;     
+
+            }
+            document.getElementById('result').innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+     <fieldset>
+        <legend>Simple Calc</legend>
+        <label for="">Enter Num1</label>
+        <input type="text" name="" id="num1">
+        <br><br>
+        <label for="">Enter Num2</label>
+        <input type="text" name="" id="num2">
+        <br><br>
+         <button onclick="calc('+')">+</button>
+         <button onclick="calc('-')">-</button>
+         <button onclick="calc('*')">*</button>
+         <button onclick="calc('/')">/</button>
+         <button onclick="calc('%')">%</button>
+        <p id="result"></p>
+    </fieldset>
+</body>
+</html>

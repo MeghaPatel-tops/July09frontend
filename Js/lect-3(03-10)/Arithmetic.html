@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function simpleCalc(){
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+
+            num1 = Number(num1);
+            num2 = Number(num2);
+           
+            let str = `
+              Addition = ${num1+num2} <br>
+              sub = ${num1-num2} <br>
+              mul = ${num1*num2} <br>
+              div = ${num1/num2} <br>
+              module = ${num1%num2} <br>
+              exp = ${num1**num2} <br>
+            `;
+
+            document.getElementById('result').innerHTML=str;
+
+        }
+
+        let x=10;
+        let y;
+        y=++x;//pre increment
+        console.log("y=",y);
+        console.log("x=",x);
+        
+        
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Simple Calc</legend>
+        <label for="">Enter Num1</label>
+        <input type="text" name="" id="num1">
+        <br><br>
+        <label for="">Enter Num2</label>
+        <input type="text" name="" id="num2">
+        <br><br>
+        <button onclick="simpleCalc()">Submit</button>
+        <p id="result"></p>
+    </fieldset>
+</body>
+</html>

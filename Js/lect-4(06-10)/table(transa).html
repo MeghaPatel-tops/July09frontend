@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function genTable(){
+            let num1 = document.getElementById('num1').value;
+            let i,str="";
+            for(i=1;i<=10;i++){
+                //console.log(num1*i);
+                str += `${num1} * ${i} = ${num1*i}<br>`;
+                //console.log(str);
+            }
+            document.getElementById('result').innerHTML=str;
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Table Print</legend>
+        <label for="">Enter Num1</label>
+        <input type="text" name="" id="num1">
+        <br><br>
+        <button onclick="genTable()">Click</button>
+        <p id="result"></p>
+    </fieldset>    
+</body>
+</html>

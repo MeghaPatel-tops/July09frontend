@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function checkAge(){
+           let age = document.getElementById('age').value;
+           console.log(age);
+           let str;
+        if(age>=18){
+            str ="eligible";
+        }
+        else{
+           str="not elogible";   
+        }
+        document.getElementById('result').innerHTML = str;
+       }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Age Chekck</legend>
+        <label for="">Enter Age</label>
+        <input type="text" name="" id="age">
+        <button onclick="checkAge()">Click</button>
+        <p id="result"></p>
+    </fieldset>
+</body>
+</html>
