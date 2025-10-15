@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //function definition
+        function test(){
+            console.log("Function called");
+        }
+
+        //function calling
+        test();
+
+        //function with parameter
+        function add(a,b){
+            console.log("addition=",a+b);        
+        }
+
+        add(12,56);
+        add(-900,888)
+
+        //function returning value
+        function squareFind(num){
+            return num*num;
+        }
+
+        let ans=squareFind(12);
+        console.log("ans",ans);
+        
+
+        //function with default value
+        function mul(a,b,c=1){
+            let m= a*b*c;
+            console.log("mul=",m);
+            
+        }
+
+        mul(1,2,3);
+        mul(5,6);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

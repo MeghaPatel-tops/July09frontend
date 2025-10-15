@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Image Genrate </h1>
+    <form >
+        <label for="">Enter Images url</label>
+        <input type="text" name="" id="imgurl">
+        <button onclick="imgCreate()" type="button">Click</button>
+    </form>
+    <div id="img-div"></div>
+    
+</body>
+<script>
+    function imgCreate(){
+        let url= document.getElementById('imgurl').value;
+        alert(url);
+        let img1 = document.createElement('img');
+        img1.setAttribute('src',"images.jpg");
+        img1.style.height="100px";
+        img1.style.width="100px";
+        console.log(img1);
+        
+        document.getElementById("img-div").appendChild(img1)
+    }
+</script>
+</html>

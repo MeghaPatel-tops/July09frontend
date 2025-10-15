@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     .box{
+        height: 100px;
+        width: 100px;
+        }
+   </style>
+    <script>
+        function fontColorChange(){
+            let colorName =prompt("Enter color name");
+            document.getElementById('par1').style.color=colorName;
+
+        let boxList = document.getElementsByClassName('box');
+        let backColor="";
+         for(i=0;i<boxList.length;i++){
+            if(i%2==0){
+                backColor="gray";
+            }
+            else{
+                 backColor="black";
+            }
+            boxList[i].style.backgroundColor=backColor;
+                
+         }
+        }
+        
+    </script>
+</head>
+<body>
+    <p id="par1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, eligendi sed eos magnam voluptas vel nulla modi architecto nemo aspernatur expedita atque quibusdam praesentium earum tempora, voluptatum excepturi doloribus. Magnam!</p>
+    <button onclick="fontColorChange()" >Change Font color</button>
+    <div class="box">box-1</div>
+    <div class="box">box-2</div>
+    <div class="box">box-3</div>
+    <div class="box">box-4</div>
+    <div class="box">box-5</div>
+    <div class="box">box-6</div>
+    <div class="box">box-7</div>
+    <div class="box">box-8</div>
+    <div class="box">box-9</div>
+    <div class="box">box-10</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+      
+      .head{
+       
+           background-color: black;
+        color: white;
+      }
+      .list{
+          width: 100%;
+        display: flex;
+        flex-direction: row;
+       
+      }
+     
+      .btn-toggle{ 
+       display: none;
+      }
+      .list-item{
+           padding: 20px 0px;
+           width: 100px;
+           text-align: center;
+           
+      }
+    
+
+       @media screen and (max-width:650px) {
+            body {
+              background-color: aqua;
+            }
+           .list{
+              display: none;
+              /* display: flex;  */
+              flex-direction: column;
+              align-items: center;
+            }
+            .list-item{
+              width: 100%;
+              border-bottom: 1px solid white;
+            }
+
+            .btn-toggle{
+              display: flex;
+              justify-content: flex-end;
+            }
+            #closebtn{
+              display: none;
+            }
+      }
+
+       
+    </style>
+</head>
+<body>
+    <div class="head">
+          <div class="btn-toggle">
+              <button id="showbtn" onclick="showMenu()">show</button>
+              <button id="closebtn" onclick="hideMenu()">Close</button>
+          </div>
+           <div class="list" id="listId">
+             <div class="list-item">Home-1</div>
+            <div class="list-item">Home-2</div>
+            <div class="list-item">Home-3</div>
+            <div class="list-item">Home-4</div>
+            <div class="list-item">Home-5</div>
+           </div>
+        </div>
+</body>
+</html>

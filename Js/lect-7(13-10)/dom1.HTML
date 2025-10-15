@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    </script>
+    <style>
+        .box{
+            height: 400px;
+            width: 200px;
+            background-color: black;
+            border: 5px solid gray;
+        }
+        .box-hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <P id="para1">lorem</P>
+    <P id="para1">lorem</P>
+    <div class="box" id="box1">
+
+    </div>
+    <button id="#btnshow" onclick="showDiv()">Show Div</button>
+    <button id="#btnhide" onclick="divHide()">Hide div</button>
+</body>
+<script>
+    let para1=document.querySelector("#para1");
+    para1.textContent ="Tops tech"
+    console.log(para1);
+
+    function divHide(){
+        let box1 = document.getElementById('box1');
+        box1.classList.remove('box');
+        console.log(box1);
+        box1.classList.add('box-hide')
+    }
+
+    function showDiv(){
+        let box1 = document.getElementById('box1');
+        box1.classList.remove('box-hide');
+          console.log(box1);
+        box1.classList.add('box')
+    }
+    
+</script>
+</html>
