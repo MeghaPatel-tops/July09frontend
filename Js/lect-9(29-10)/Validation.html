@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .danger{
+        color: red;
+    }
+</style>
+
+<body>
+
+<div class="container">
+  <h2>Registration form</h2>
+  <form id="regform" method="post">
+     <div class="form-group">
+      <label for="email">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter email" name="email">
+      <p class="danger" id="unamemsg"></p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+        <p class="danger" id="emailmsg"></p>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd" onkeyup="validatePass(this.value)">
+      <div id="pwdmsg" style="display: none;">
+        <p id="sm" class="danger">Small Latter</p>
+      <p id="cp"  class="danger">Captial Latter  </p>
+      <p id="num"  class="danger">0-9</p>
+      <p id="spe"  class="danger">special char</p>
+       <p id="charlen"  class="danger">Max cahr >=8</p>
+      </div>
+    </div>
+   
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<script>
+    let pwd = document.getElementById('pwd');
+    pwd.addEventListener('focus',function(){
+        document.getElementById('pwdmsg').style.display="block";
+    })
+   
+    function validatePass(pwd){
+        
+        const smallpatter = /[a-z]/g
+        const cappatter = /[A-Z]/g
+        const numpatter=/[0-9]/g
+        const charPatter = /[@$!%*#?&]/g
+        if(smallpatter.test(pwd)){
+            document.getElementById('sm').style.color="green";
+        }
+        if(cappatter.test(pwd)){
+            document.getElementById('cp').style.color="green";
+        }
+         if(numpatter.test(pwd)){
+            document.getElementById('num').style.color="green";
+        }
+        if(pwd.length >= 8){
+            document.getElementById('charlen').style.color="green";
+        }
+        if(charPatter.test(pwd)){
+            document.getElementById('spe').style.color="green";
+        }
+    }
+    function validateEmail(email) {
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        return emailPattern.test(email);
+
+}
+    let form1 = document.getElementById('regform');
+    form1.addEventListener("submit",function(e){
+        e.preventDefault();
+        // alert("form submitted");
+        //===================user Name Validation=========================
+        let username = document.getElementById('name');
+        if(username.value == ""){
+            document.getElementById('unamemsg').innerHTML="Enter Valid User Name";
+            username.focus();
+        }
+        //========================Email Validation===================
+         let email = document.getElementById('email');
+         
+        if(email.value == "" ){
+            document.getElementById('emailmsg').innerHTML="Enter Email";
+            email.focus();
+        }
+        else{
+            if(!validateEmail(email.value)){
+            document.getElementById('emailmsg').innerHTML="Enter Valid Email (dev@gmail.com)";
+            email.focus();
+        }
+        }
+       
+       
+        
+    })
+</script>
+</body>
+</html>
