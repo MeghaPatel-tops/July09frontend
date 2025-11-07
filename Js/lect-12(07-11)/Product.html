@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <fieldset>
+        <legend>Todo app</legend>
+        <label for="">
+            Enter Product name
+        </label>
+        <input type="text" name="" id="pname">
+        <br><br>
+          <label for="">
+            Enter Product price
+        </label>
+        <input type="text" name="" id="price">
+        <br><br>
+          <label for="">
+            Enter Product Description
+        </label>
+        <input type="text" name="" id="desc">
+        <br><br>
+        <button onclick="addProduct()" id="add">Add</button>
+       
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>SRNO</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="taskdata">
+               
+            </tbody>
+        </table>
+    </fieldset>
+
+
+    <script>
+        let Products=[];
+
+        function cleanup()
+        {
+            document.getElementById('pname').value="";
+             document.getElementById('price').value="";
+              document.getElementById('desc').value="";
+        }
+         
+        function addProduct(){
+            let singleProduct = {
+                pname:document.getElementById('pname').value,
+                price:document.getElementById('price').value,
+                desc:document.getElementById('desc').value
+            }
+            Products.push(singleProduct);
+            console.log(Products);
+            cleanup();
+            printProducts();
+            
+        }
+
+
+        function printProducts(){
+            let str="";
+              Products.map((index,i)=>{
+                   str+=`
+                        <tr>
+                        <td>${i+1}</td>
+                        <td>${index.pname}</td>
+                        <td>${index.price}</td>
+                        <td>${index.desc}</td>
+                    </tr>
+                   `
+              })
+
+              document.getElementById('taskdata').innerHTML=str;
+        }
+
+        window.onload=printProducts();
+
+    </script>
+</body>
+</html>

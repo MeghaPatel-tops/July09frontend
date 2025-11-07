@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let salary = [10000,23000,40000,35000];
+        let increSalary = salary.map((index,i)=>{
+            return   index + ((index*10)/100);
+        })
+
+        console.log(increSalary);
+        console.log(salary);
+        
+
+        increSalary.map((index)=>{
+            document.write(`<h2>${index}</h2>`)
+        })
+
+
+        let numArray = [13,12,2,44,56,77,31,35,32,56,99,79];
+
+        let evenArray = numArray.filter((index)=>{
+            if(index%2==0){
+                return index
+            }
+        })
+
+        console.log(evenArray);
+
+        let sumOfArray = numArray.reduce((sum,index)=>sum+index,0);
+
+        console.log(sumOfArray);
+
+        function CompateNumerice(a,b){
+            if(a>b) return 1;
+            if(a==b) return 0;
+            if(a<b) return -1;
+
+        }
+        
+        let sortArray = numArray.sort(CompateNumerice);
+        console.log(sortArray);
+        
+
+        console.log("array reverse", numArray.reverse());
+        
+
+        let hobby = ["music","dance","sports"];
+    let hobbyStr = hobby.join("-")
+        console.log(hobbyStr);
+        
+
+        console.log(hobbyStr.split("-"));
+
+        console.log(hobby.indexOf("sports"));
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

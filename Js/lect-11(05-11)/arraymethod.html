@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fruits = ["apple","kiwi","banana"];
+        let i=0;
+         console.log(fruits);
+       
+
+        fruits.push("graps");
+       console.log(fruits);
+
+       fruits.pop();
+       console.log(fruits);
+
+       fruits.unshift("dragon");
+       console.log(fruits);
+
+       fruits.shift();
+       console.log(fruits);
+
+       //) ['apple', 'kiwi', 'banana']
+       //delete fruits[1];//remove item but index occupied
+       console.log(fruits);
+
+    //    fruits.splice(1,1);
+    //     console.log(fruits);
+
+        fruits.splice(2,1,"bbb")
+        console.log(fruits);
+
+
+        let subject = ["php","node","java",".net","react"];
+
+        console.log(subject.slice(2,5));
+
+        let networking=['A+',"N+"];
+
+        let newArray =subject.concat(networking);
+
+        console.log(newArray);
+
+        newArray.forEach((sub,index,newArray)=>{
+            let str=`${index}=${sub}<br>`;
+            document.writeln(str);
+        })
+        
+        
+
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

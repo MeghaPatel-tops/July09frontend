@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let Movie= "Thama";
+        console.log(Movie.toUpperCase());
+        
+        let pi =3.1400777;
+        console.log(pi.toFixed(2));
+
+        let billon = 2e9;
+
+        console.log(billon);
+
+        let nnum = 6e-4;
+        console.log(nnum);
+
+        function findHexa(){
+            let num1 =document.getElementById('num1').value;
+            num1 = Number(num1);
+           let str=`
+              <h2>Hexa Demimal value =${num1.toString(16)}<h2>
+                <h2>Binary value =${num1.toString(2)}<h2>
+           `;
+           document.getElementById('result').innerHTML=str;
+            
+        }
+
+        let name = "Megha";
+
+        console.log(name[0]);
+        console.log(name.at(0));
+
+        console.log(name[name.length-1]);
+        console.log(name.at(-1));
+
+        let str1 = " Loremon ipsum dolor sit amet consectetur";
+
+        console.log(str1.indexOf("on"));
+        
+        
+        
+        
+        
+
+        
+        
+        
+
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Form</legend>
+        <h1>Convert Number into hex and binary</h1>
+        <label for="">Enter num</label>
+        <input type="text" name="" id="num1">
+        <p id="result"></p>
+        <input type="button" value="Submit" onclick="findHexa()">
+    </fieldset>
+    
+</body>
+</html>

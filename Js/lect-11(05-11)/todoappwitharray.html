@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <fieldset>
+        <legend>Todo app</legend>
+        <label for="">
+            Enter Task
+        </label>
+        <input type="text" name="" id="task">
+        <button onclick="addTask()" id="add">Add</button>
+        <input type="hidden" id="taskid">
+        <button onclick="updateTask()"  id="update">update</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>SRNO</th>
+                    <th>Task</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="taskdata">
+               
+            </tbody>
+        </table>
+    </fieldset>
+</body>
+<script>
+  
+    let todo =[];
+    
+      window.onload=displayTodo();
+    function addTask(){
+        let task = document.getElementById('task').value;
+        todo.push(task);
+        document.getElementById('task').value="";
+        console.log(todo);
+        displayTodo();
+    }
+
+    function displayTodo(){
+        document.getElementById('update').style.display="none";
+        document.getElementById('add').style.display="block";
+        let str= "";
+        todo.forEach((task,index,todo)=>{
+             str +=`
+                <tr>
+                    <td>${index+1}</td>
+                    <td>${task}</td>
+                    <td><button onclick="delTask(${index})" >Delete</button></td>
+                    <td><button onclick="editTask(${index})" >Edit</button></td>
+                </tr>
+            `
+        })
+        document.getElementById("taskdata").innerHTML = str;
+    }
+
+    function delTask(id){
+        todo.splice(id,1);
+        displayTodo();
+    }
+
+    function editTask(id){
+        let prevTask = todo[id];
+        
+        document.getElementById('task').value=prevTask;
+        document.getElementById('taskid').value=id;
+        document.getElementById('add').style.display="none";
+        document.getElementById('update').style.display="block";
+    }
+
+    function updateTask(){
+        let task =document.getElementById('task').value;
+       let id= document.getElementById('taskid').value;
+       todo.splice(id,1,task);
+        document.getElementById('task').value="";
+       displayTodo();
+    }
+</script>
+</html>
