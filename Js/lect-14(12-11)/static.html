@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class StaticExample{
+        static count ;
+        constructor(){
+             StaticExample.count++;
+        }
+
+        static countPrint(){
+            console.log(StaticExample.count);
+        }
+    }
+    StaticExample.count=0;
+    let s1 = new StaticExample();
+    let s2 = new StaticExample();
+    let s3 = new StaticExample();
+    let s4 = new StaticExample();
+
+    
+    StaticExample.countPrint();
+</script>
+</html>

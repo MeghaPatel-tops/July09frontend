@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+       class Parents{
+           constructor(){
+               console.log("parent class con. called");
+               
+           }
+           test(){
+               console.log("test method");
+               
+           }
+       }
+
+       class Child extends Parents{
+           constructor(){
+               super();
+               console.log("Child class con called");
+               
+           }
+            test(){
+                super.test();
+               console.log("test method child");
+               
+           }
+       }
+
+       let c1 = new Child();
+       c1.test();
+
+</script>
+</html>
