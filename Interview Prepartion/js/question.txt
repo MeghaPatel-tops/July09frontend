@@ -1,0 +1,220 @@
+1. What is the difference between var, let, and const?
+2. What is hoisting in JavaScript?
+3. Explain the concept of scope (global, function, block).
+4. What is the difference between == and ===?
+5. What are truthy and falsy values?
+6. What is a callback function?
+7. What is an arrow function? How is it different from a normal function?
+===============================================================================
+8. What is a template literal?
+  ANS:A template literal is a modern way (introduced in ES6) to create strings in JavaScript using backticks (`) instead of quotes.
+
+Template literals allow:
+
+✔ String interpolation (embedding variables)
+✔ Multi-line strings
+✔ Expression evaluation
+✔ Tagged templates
+================================================================================
+9. What is the event loop in JavaScript?
+The event loop is a mechanism in JavaScript that handles asynchronous operations and ensures that non-blocking code runs efficiently, even though JavaScript itself is single-threaded.
+
+It continuously checks:
+
+Is the call stack empty?
+
+If yes, can we take a callback/task from the queue and run it?
+
+This process keeps JavaScript responsive.
+1. Call Stack
+
+Where JavaScript executes your code line by line.
+
+2. Web APIs / Browser APIs
+
+Handle async tasks like:
+
+setTimeout
+
+fetch
+
+DOM events
+
+Promises
+
+3. Task Queues
+
+There are two main queues:
+
+✔ Callback (Macro) Task Queue
+
+Contains tasks like:
+
+setTimeout
+
+setInterval
+
+click events
+
+✔ Microtask Queue
+
+Contains:
+
+Promise .then()
+
+async/await callbacks
+
+MutationObserver
+
+👉 Microtasks have higher priority than macrotasks.
+
+4. Event Loop
+
+The event loop continuously:
+
+Checks if the call stack is empty
+
+If empty → pushes tasks from the microtask queue first, then macrotasks
+========================================================================
+
+
+10. What is the difference between null and undefined?
+| Feature         | **null**                                     | **undefined**                                |
+| --------------- | -------------------------------------------- | -------------------------------------------- |
+| **Meaning**     | Intentional absence of value                 | Variable declared but not assigned           |
+| **Type**        | `object` (bug in JS)                         | `undefined`                                  |
+| **Set by**      | Developer (you manually assign it)           | JavaScript (automatically)                   |
+| **Typical Use** | Represents "empty", "nothing", or "no value" | Represents "not assigned", "not defined yet" |
+| **Equality**    | `null == undefined` → true                   | `null === undefined` → false                 |
+===================================================================
+11. What is closure in JavaScript?
+A closure is formed when an inner function remembers and can access variables from its outer function’s scope, even after the outer function has finished executing.
+
+In simple words:
+
+👉 Closure = function + its lexical (outer) environment
+=====================================================================
+
+12. What is the difference between synchronous and asynchronous code?
+
+Synchronous code runs one line at a time and blocks further execution until the current task finishes.
+
+✔ Executes in sequence
+✔ Each task waits for the previous one
+✔ Can cause blocking (slow operations freeze the program)
+
+Asynchronous code allows tasks to run without blocking the main thread.
+
+✔ Does NOT wait for a task to finish
+✔ Frees the program to run other code
+✔ Uses callbacks, promises, async/await
+
+Common async operations:
+
+setTimeout
+
+fetch
+
+reading files
+
+database calls
+===================================================================
+
+13. What is a Promise? Explain its states.
+A Promise is an object that represents the eventual completion or failure of an asynchronous operation.
+
+It allows you to write async code in a cleaner way compared to callbacks (avoids callback hell).
+
+A Promise acts as a placeholder for a value that will be available now, later, or never.
+| State         | Meaning                                               |
+| ------------- | ----------------------------------------------------- |
+| **pending**   | Initial state — operation is still running            |
+| **fulfilled** | Operation completed successfully (`resolve()` called) |
+| **rejected**  | Operation failed (`reject()` called)                  |
+============================================================================
+
+14. What is async/await?
+async/await is a modern JavaScript syntax (ES8) used to work with Promises in a cleaner and more readable way.
+
+It allows you to write asynchronous code that looks like synchronous code.
+
+When you put async before a function:
+
+✔ The function always returns a Promise
+✔ The returned value is automatically wrapped in a Promise
+
+AWAIT pauses the execution of the function until the Promise is resolved or rejected.
+
+✔ Can only be used inside async functions
+✔ Makes asynchronous code behave like synchronous
+=======================================================================
+15. What is DOM and how does it work?
+
+DOM (Document Object Model) is a programming interface for HTML and XML documents.
+It represents the webpage as a tree structure of objects so that JavaScript can interact with it.
+
+In simple terms:
+
+👉 The DOM is how JavaScript sees, reads, and manipulates the webpage.
+
+Document
+ └── html
+      ├── head
+      └── body
+            └── h1
+                 └── "Hello"
+JavaScript can:
+
+✔ Add elements
+✔ Remove elements
+✔ Change text
+✔ Change styles
+✔ Handle user events (click, input, scroll, etc.)
+========================================================================
+
+16. What is event delegation?
+Event Delegation is a JavaScript technique where instead of adding event listeners to multiple child elements, you add a single event listener to a parent element and handle events using event bubbling.
+
+In simple words:
+document.getElementById("parent").addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    console.log("Button clicked:", e.target.textContent);
+  }
+});
+/======================================================================
+
+17. What is a higher-order function?
+
+1️⃣ Takes another function as an argument,
+OR
+2️⃣ Returns a function,
+OR both.
+1. Function taking another function as an argument
+2. Function returning another function
+3. Array methods (built-in HOFs)
+=========================================================================
+18. What are pure functions?
+19. What is the difference between map, filter, and reduce?
+20. What is the this keyword? How does it behave in strict mode?
+
+21. What is prototypal inheritance?
+22. What are generator functions?
+23. What is debouncing and throttling?
+24. What is the difference between call, apply, and bind?
+25. What is currying?
+26. What is the event bubbling and capturing?
+27. What are modules in JavaScript? (import, export)
+28. What is the difference between localStorage, sessionStorage, and cookies?
+29. What is a shallow copy vs deep copy?
+30. Explain garbage collection in JavaScript.
+
+31. What are WeakMap and WeakSet?
+32. What is memoization?
+33. What is the difference between microtasks and macrotasks?
+34. Explain reflow and repaint in the browser.
+35. What is Web Worker?
+36. How does the JS engine optimize code (JIT compilation)?
+37. What is shadow DOM?
+38. What is functional programming in JavaScript?
+39. What is an IIFE? Why is it used?
+40. How does event loop handle async/await internally?

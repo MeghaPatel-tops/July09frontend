@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        localStorage.setItem('username','Megha');
+        localStorage.setItem('email','m@gmail.com');
+       
+         function printUsername(){
+              let uname = localStorage.getItem('username');
+              console.log(uname);
+              document.getElementById('username').innerHTML=`Welcome :${uname}`;
+         }
+          setTimeout(printUsername,2000)
+
+    </script>
+</head>
+<body>
+    <h1 id="username"></h1>
+</body>
+</html>

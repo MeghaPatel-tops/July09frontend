@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 600px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+                border: 10px solid black;
+                padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+         <h1>Step 1:</h1>
+        <fieldset>
+           <legend> Personal Details</legend>
+            <label for="">Enter Name:</label>
+            <input type="text" name="" id="uname" >
+            <br><br>
+            <label for="">Enter Email:</label>
+            <input type="text" name="" id="email">
+            <br><br>
+            <label for="">Enter Contact:</label>
+            <input type="text" name="" id="cnno">
+            <br><br>
+            <input type="button" value="Submit" onclick="completestep1()">
+        </fieldset>
+    </div>
+    <script>
+        document.getElementById('uname').value = sessionStorage.getItem('uname') ?? "";
+         document.getElementById('email').value = sessionStorage.getItem('email') ?? "";
+          document.getElementById('cnno').value = sessionStorage.getItem('cnno') ?? "";
+        function completestep1(){
+            let uname = document.getElementById('uname').value;
+            let email = document.getElementById('email').value;
+            let cnno = document.getElementById('cnno').value;
+            sessionStorage.setItem('uname',uname);
+            sessionStorage.setItem('email',email);
+            sessionStorage.setItem('cnno',cnno);
+            window.location ="step2.html";
+        }
+    </script>
+</body>
+</html>

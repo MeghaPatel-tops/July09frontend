@@ -1,0 +1,11 @@
+var:has function 
+var redefine or redeclare
+
+and let & const has block
+let redeclare deredine
+let m =10; m=20;/posible
+let m=10 ; let m=20//gen error
+
+const =>redclare & redefine not done
+const pi =3.14 ; pi=2.7//Error
+const pi=3.14; const  pi=2.7//error

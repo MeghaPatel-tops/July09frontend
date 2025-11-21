@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #pdfid {
+         width: 100vw; /* Occupies 100% of the viewport width */
+        height: 100vh; 
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        padding: 10px;
+    }
+    #pdfid h1{
+        font-size: 2vw;
+    }
+    #pdfid td,th{
+        font-size: 1vw;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script >
+    const { jsPDF } = window.jspdf;
+
+    function createLink() {
+        const previousUrl = document.referrer;
+        let aTag = document.createElement('a');
+        aTag.setAttribute('href', previousUrl);
+        aTag.textContent = "Back";
+        document.getElementById('backdiv').append(aTag);
+    }
+
+    function createPersonalPdf() {
+
+        document.getElementById('pdfid').style.display="block"
+        // Get user values
+        let uname = sessionStorage.getItem('uname') ?? "";
+        let email = sessionStorage.getItem('email') ?? "";
+        let cnno = sessionStorage.getItem('cnno') ?? "";
+        let edu = document.getElementById('edu').value;
+
+        // Insert values into HTML template BEFORE converting to PDF
+        document.getElementById("nameVal").innerText = uname;
+        document.getElementById("emailVal").innerText = email;
+        document.getElementById("cnnoVal").innerText = cnno;
+        document.getElementById("eduVal").innerText = edu;
+
+        // Create PDF
+        const doc = new jsPDF();
+
+        doc.html(document.querySelector("#pdfid"), {
+            callback: function (doc) {
+                doc.save(uname + ".pdf");
+            },
+            x: 10,
+            y: 10,
+            width: 180
+        });
+    }
+
+    window.onload = createLink;
+</script>
+
+    <style>
+        body{
+            height: 600px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+                border: 10px solid black;
+                padding: 100px;
+        }
+    </style>
+</head>
+<body>
+ <div id="pdfid">
+    <h1>Personal Details:</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td id="nameVal"></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td id="emailVal"></td>
+        </tr>
+        <tr>
+            <th>Contact:</th>
+            <td id="cnnoVal"></td>
+        </tr>
+    </table>
+    <hr>
+    <h1>Education Details</h1>
+    <p id="eduVal"></p>
+</div>
+
+    <div class="main">
+        <div id="backdiv"></div>
+         <h1>Step 2:</h1>
+        <fieldset>
+           <legend> Education Details</legend>
+            <label for="">Education Details</label>
+             <textarea name="" id="edu"></textarea>
+            <input type="button" value="Submit" onclick="createPersonalPdf()">
+        </fieldset>
+    </div>
+    
+</body>
+</html>

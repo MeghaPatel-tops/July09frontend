@@ -1,0 +1,32 @@
+1. What is the difference between var, let, and const?
+2. What is hoisting in JavaScript?
+3. Explain the concept of scope (global, function, block).
+4. What is the difference between == and ===?
+5. What are truthy and falsy values?
+6. What is a callback function?
+7. What is an arrow function? How is it different from a normal function?
+8. What is a template literal?
+9. What is the event loop in JavaScript?
+10. What is the difference between null and undefined?
+
+11. What is closure in JavaScript?
+12. What is the difference between synchronous and asynchronous code?
+13. What is a Promise? Explain its states.
+14. What is async/await?
+15. What is DOM and how does it work?
+16. What is event delegation?
+17. What is a higher-order function?
+18. What are pure functions?
+19. What is the difference between map, filter, and reduce?
+20. What is the this keyword? How does it behave in strict mode?
+
+21. What is prototypal inheritance?
+22. What are generator functions?
+23. What is debouncing and throttling?
+24. What is the difference between call, apply, and bind?
+25. What is currying?
+26. What is the event bubbling and capturing?
+27. What are modules in JavaScript? (import, export)
+28. What is the difference between localStorage, sessionStorage, and cookies?
+29. What is a shallow copy vs deep copy?
+30. Explain garbage collection in JavaScript.
