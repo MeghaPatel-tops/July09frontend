@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let UserPromise = new Promise(async(resolve,reject)=>{
+             try {
+                let res = await fetch('https://jsonplaceholder.typicode.com/users');
+                
+                let users = await res.json();
+                //console.log("in promise",users);
+                resolve(users)
+                
+             } catch (error) {
+                reject(error)
+             }
+        })
+
+        
+
+          let PostPromise = new Promise(async(resolve,reject)=>{
+             try {
+                let res = await fetch('https://jsonplaceholder.typicode.com/posts');
+                method:'post';
+                let postdata = await res.data();
+               // console.log("in promise",postdata);
+                resolve(postdata)
+                
+             } catch (error) {
+                reject(error)
+             }
+        })
+
+        const getAllPromise = async()=>{
+           try {
+             let [user,post] = await Promise.all(
+                [
+                    UserPromise,
+                    PostPromise
+                ]
+            )
+
+            console.log("userdata",user);
+            
+           } catch (error) {
+                console.log(error);
+                
+           }
+            
+        }
+
+        getAllPromise();
+
+       
+    </script>
+</body>
+</html>

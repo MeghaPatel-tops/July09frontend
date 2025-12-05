@@ -5,25 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .card-header >img{
+            width: 100%;
+            height: 200px;
+        }
+    </style>
   </head>
   <body>
-     <div class="container-fluid">
+     <div class="container-fluid ">
         
     
-      <ul class="nav justify-content-start">
+        <ul class="nav justify-content-start">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Dashbord</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="product.html">Product</a>
                         </li>
-                         <li class="nav-item" id="cart">
+                         <li class="nav-item " id="cart">
                             
                         </li>
                         <li class="nav-item ms-auto" id="auth">
                             
                         </li>
         </ul>
+
+        <div class="containe border border-radius mt-5 p-3">
+            <h1>Products</h1>
+            <div class="row" id="prodata">
+              
+                <div class="col-xl-4"></div>
+                <div class="col-xl-4"></div>
+            </div>
+        </div>r
           
      </div>
 
@@ -31,7 +46,10 @@
          
    </script>
    <script>
-    window.onload =  checkAuth;
+    window.onload =  function(){
+        checkAuth();
+        getProduct(showProduct);
+    }
    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
