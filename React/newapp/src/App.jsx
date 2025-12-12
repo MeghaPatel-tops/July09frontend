@@ -8,6 +8,8 @@ import Counter from './components/counter'
 import Formexample from './components/Formexample'
 import CssExample from './components/CssExample'
 import Flexbox from './components/Flexbox'
+import StyleComonents from './components/StyleComonents'
+import Hero from './components/Hero'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,7 +22,9 @@ function App() {
      <Counter />
      <Formexample /> */}
      <CssExample />
+     <Hero />
      <Flexbox />
+     <StyleComonents />
     </>
   )
 }

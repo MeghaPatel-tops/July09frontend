@@ -1,0 +1,40 @@
+import React, { useState } from 'react'
+
+function Userlist() {
+    const [users,setUsers]=useState([]);
+    const [username,setUsername]=useState("");
+    const [email,setEmail]=useState("");
+
+    const handleChangeUname = (e)=>{
+        setUsername(e.target.value);
+    }
+    const handleChangeEmail = (e)=>{
+        setEmail(e.target.value);
+    }
+
+    const handleClick=()=>{
+        let singleUser = {
+            uname:username,
+            email:email
+        }
+        console.log(singleUser);
+        
+    }
+  return (
+    <div>
+        <h1>User Deatils</h1>
+        <fieldset>
+            <legend>Add New User</legend>
+            <label htmlFor="">Username</label>
+            <input type="text" name="username" id="" onChange={handleChangeUname} />
+            <br />
+            <label htmlFor="">Email</label>
+            <input type="email" name="email" id="" onChange={handleChangeEmail}/>
+            <br />
+            <button onClick={handleClick} >Submit</button>
+        </fieldset>
+    </div>
+  )
+}
+
+export default Userlist
