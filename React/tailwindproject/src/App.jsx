@@ -6,16 +6,28 @@ import Navbar from './Components/Navbar'
 import Silder from './Components/Silder'
 import Theameset from './Components/Theameset'
 import Userlist from './Components/Userlist'
+import Product from './Components/Product'
+import Post from './Components/Post'
+import { QueryClient,QueryClientProvider } from '@tanstack/react-query'
+import Tespost from './Components/Tespost'
+
+const queryClinet = new QueryClient();
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Navbar />
+    {/* <Navbar />
     <Silder />
     <Theameset />
-    <Userlist />
+    <Userlist /> */}
+     
+     {/* <Product /> */}
+     {/* <Post /> */}
+     <QueryClientProvider client={queryClinet}>
+          <Tespost />
+     </QueryClientProvider>
      </>
   )
 }
