@@ -21,8 +21,8 @@ function Tespost() {
   if (error) return <p>Error: {error.message}</p>;
      
   return (
-    <div>Tespost
-       
+    <div style={{padding:"100px"}}>TesTpost
+        <input type="text" name="" id="" style={{padding:"10px 20px"}} onChange={handleChange}/>
          <ul>
            
             {

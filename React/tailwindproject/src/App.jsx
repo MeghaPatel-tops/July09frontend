@@ -10,6 +10,11 @@ import Product from './Components/Product'
 import Post from './Components/Post'
 import { QueryClient,QueryClientProvider } from '@tanstack/react-query'
 import Tespost from './Components/Tespost'
+import Counter from './Components/Counter'
+import FilterPost from './Components/FilterPost'
+
+import PostContext from './Components/PostContext'
+
 
 const queryClinet = new QueryClient();
 
@@ -25,9 +30,11 @@ function App() {
      
      {/* <Product /> */}
      {/* <Post /> */}
-     <QueryClientProvider client={queryClinet}>
+     {/* <QueryClientProvider client={queryClinet}>
           <Tespost />
-     </QueryClientProvider>
+     </QueryClientProvider> */}
+     {/* <Counter /> */}
+     <FilterPost />
      </>
   )
 }
