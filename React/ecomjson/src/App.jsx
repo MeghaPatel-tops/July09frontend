@@ -6,6 +6,8 @@ import Adminindex from './Admin/Adminindex'
 import Product from './Admin/Product'
 import Productedit from './Admin/Productedit'
 import Userindex from './Users/Userindex'
+import Productadd from './Admin/Productadd'
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
              
                 <Route path='product'  element={<Product/>}></Route>
                 <Route path='productedit' element={<Productedit />}></Route>
+                <Route path='productadd' element={ <Productadd/>}></Route>
            
             </Route>
 
