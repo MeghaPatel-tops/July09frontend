@@ -5,6 +5,14 @@ import { NavLink } from 'react-router-dom'
 function Product() {
   const [products,setProduct]=useState([]);
 
+   const delProduct =async(pid)=>{
+       let res = await axios.delete('http://localhost:3000/products/'+pid);
+       if(res){
+           alert("Product deleted successfully");
+           getProducts();
+       }
+   }
+
   const getProducts= async()=>{
       let res = await axios.get('http://localhost:3000/products');
       console.log(res.data);
@@ -32,18 +40,27 @@ function Product() {
                           <th>Price</th>
                           <th>Description</th>
                           <th>Image</th>
+                          <th>Action</th>
                         </tr>
                         
                       </thead>
                       <tbody>
                            {
-                            products.map((index)=>(
-                                 <tr>
+                            products.map((index,i)=>(
+                                 <tr key={i}>
                                   <td>{index.productName}</td>
                                   <td>{index.price}</td>
                                   <td>{index.description}</td>
                                   <td>
                                     <img src={index.productImage} alt="" height={"100px"} width={"100px"}/>
+                                  </td>
+                                  <td>
+                                    <button className='btn btn-danger' onClick={()=>{
+                                      delProduct(index.id)
+                                    }}>
+                                        DELETE
+                                    </button>
+                                    <NavLink to={'/admin/productedit/'+index.id} className="btn btn-success">Edit</NavLink>
                                   </td>
                                 </tr>
                             ))

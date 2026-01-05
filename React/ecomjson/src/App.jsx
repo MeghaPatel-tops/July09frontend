@@ -20,7 +20,7 @@ function App() {
             <Route path='admin' element={<Adminindex />}>
              
                 <Route path='product'  element={<Product/>}></Route>
-                <Route path='productedit' element={<Productedit />}></Route>
+                <Route path='productedit/:pid' element={<Productedit />}></Route>
                 <Route path='productadd' element={ <Productadd/>}></Route>
            
             </Route>
