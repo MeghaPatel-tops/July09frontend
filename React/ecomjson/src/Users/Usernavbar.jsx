@@ -1,6 +1,14 @@
 import React from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 function Usernavbar() {
+  const userLogged = JSON.parse(localStorage.getItem('ecom-user'));
+  const navigate=useNavigate();
+
+  const logout =()=>{
+           localStorage.removeItem('ecom-user');
+           navigate('/')
+  }
   return (
     <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,7 +30,17 @@ function Usernavbar() {
         </li>
       </ul>
       <span className="navbar-text">
-        Navbar text with an inline element
+
+        {
+                (userLogged ) ? 
+                <>
+                <label htmlFor="">welcome  {userLogged.username}</label>
+                <button className="btn btn-default" onClick={logout}>Logout</button>
+                </>
+                : <NavLink className="btn btn-default" to={"/login"}>Login</NavLink>
+
+        }
+          
       </span>
     </div>
   </div>

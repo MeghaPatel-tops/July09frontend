@@ -7,5 +7,25 @@
       "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight",
       "productImage": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
     }
+  ],
+  "users": [
+    {
+      "id": "2aff",
+      "username": "sahil",
+      "email": "a@gmail.com",
+      "pwd": "123"
+    },
+    {
+      "id": "3c56",
+      "username": "johnd",
+      "email": "n@gmail.com",
+      "pwd": "12345"
+    },
+    {
+      "id": "825b",
+      "username": "nilay",
+      "email": "nilay@gmail.com",
+      "pwd": "123456789"
+    }
   ]
 }

@@ -7,6 +7,8 @@ import Product from './Admin/Product'
 import Productedit from './Admin/Productedit'
 import Userindex from './Users/Userindex'
 import Productadd from './Admin/Productadd'
+import Login from './Users/Login'
+import Registration from './Users/Registration'
 
 
 
@@ -30,6 +32,8 @@ function App() {
           <Route path='' element={<Userindex />}>
               
           </Route>
+          <Route path='/login' element={<Login/>}></Route>
+          <Route path='/registration' element={<Registration/>}></Route>
         </Routes>
     </>
   )
