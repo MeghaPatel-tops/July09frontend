@@ -24,7 +24,7 @@ function App() {
   return (
     <>
     {/* <Navbar />
-    <Silder />
+   
     <Theameset />
     <Userlist /> */}
      
@@ -34,7 +34,8 @@ function App() {
           <Tespost />
      </QueryClientProvider> */}
      {/* <Counter /> */}
-     <FilterPost />
+     {/* <FilterPost /> */}
+      <Silder />
      </>
   )
 }

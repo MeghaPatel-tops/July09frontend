@@ -7,6 +7,7 @@ import { addDoc, collection } from 'firebase/firestore'
 import { Route,Routes } from 'react-router-dom'
 import Prooductindex from './Product/Prooductindex'
 import Prouctcreate from './Product/Prouctcreate'
+import Productedit from './Product/Productedit';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/product' element={<Prooductindex />}></Route>
           <Route path='/productcreate' element={<Prouctcreate/>}></Route>
+          <Route path='/productedit/:pid' element={<Productedit/>}></Route>
         </Routes>
          
     </>
