@@ -8,6 +8,8 @@ import { Route,Routes } from 'react-router-dom'
 import Prooductindex from './Product/Prooductindex'
 import Prouctcreate from './Product/Prouctcreate'
 import Productedit from './Product/Productedit';
+import Home from './Home';
+import Login from './Login';
 
 
 
@@ -17,12 +19,16 @@ function App() {
   return (
     <>
         <Routes>
+          <Route path='/' element={<Home />}></Route>
           <Route path='/product' element={<Prooductindex />}></Route>
           <Route path='/productcreate' element={<Prouctcreate/>}></Route>
           <Route path='/productedit/:pid' element={<Productedit/>}></Route>
+          <Route path='/login' element={<Login />
+        }></Route>
         </Routes>
          
     </>
+    
   )
 }
 
