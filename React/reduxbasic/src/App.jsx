@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { store } from './feature/store'
 import { decrement, increment } from './feature/CounterSlice';
-import { addProduct, delProductThunk, getProduct } from './feature/ProductSlice';
+import { addProduct, delProductThunk, getProduct, getSingleProduct, updateProduct } from './feature/ProductSlice';
 
 
 function App() {
   const [singleProduct,setSingleProduct]=useState({});
+  const [eid,setEid]=useState("");
   const dispatch = useDispatch();
   const count=useSelector((state)=>state.counter.value)
-  const {products,isLoading,error,msg} = useSelector((state)=>state.products);
+  const {products,isLoading,error,msg,oneProduct} = useSelector((state)=>state.products);
 
   
 
@@ -27,6 +28,21 @@ function App() {
         setSingleProduct({})
   }
 
+  const editproduct=(pid)=>{
+      alert(pid)
+      dispatch(getSingleProduct(pid));
+  
+  }
+
+  useEffect(() => {
+  if (oneProduct && Object.keys(oneProduct).length > 0) {
+    setSingleProduct(oneProduct);
+    setEid(oneProduct.id)
+  }
+}, [oneProduct]);
+
+  
+
   const delProduct = (pid)=>{
         dispatch(delProductThunk(pid))
   }
@@ -35,7 +51,12 @@ function App() {
       dispatch(getProduct())
   },[msg,dispatch])
   
-
+const handleUpdate = ()=>{
+       console.log(singleProduct);
+       console.log(eid);
+       dispatch(updateProduct({singleProduct,eid}));
+       
+}
   
   
   
@@ -70,7 +91,8 @@ function App() {
               <label htmlFor="">Enter Product Description</label>
              <input type="text" name="descr" id="" onChange={handleChange} value={singleProduct.descr??""}/>
              <br />
-             <input type="button" value="Add" onClick={handleClick} />
+             <input type="button" value="Add" onClick={handleClick}  style={{display : (eid == "") ? "block" :"none"}}/>
+              <input type="button" value="Update" onClick={handleUpdate} style={{display : (eid == "") ? "none" :"block"}}/>
         </fieldset>
          {
                    (isLoading==true) ? <span>Loading......</span> :""
@@ -99,6 +121,8 @@ function App() {
                             <td>{index.price}</td>
                             <td>{index.descr}</td>
                             <td><button onClick={()=>delProduct(index.id)}>DELETE</button></td>
+                            <td><button onClick={()=>editproduct(index.id)}>Edit</button></td>
+
                           </tr>
                      ))
                    }
