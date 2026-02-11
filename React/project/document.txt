@@ -1,0 +1,16 @@
+npm:installation:
+==================tailwind install=================
+1.npm install tailwindcss @tailwindcss/vite
+
+
+
+==================For Routing=========================
+npm install react-router-dom
+
+
+=================for database=========================
+npm install firebase
+
+
+====================State managmenet REDUX=============
+npm install @reduxjs/toolkit react-redux
