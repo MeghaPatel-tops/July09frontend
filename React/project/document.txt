@@ -14,3 +14,7 @@ npm install firebase
 
 ====================State managmenet REDUX=============
 npm install @reduxjs/toolkit react-redux
+
+
+==============api hitting================
+npm i axios

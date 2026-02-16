@@ -12,7 +12,7 @@ function App() {
     <>
          <Routes>
           {/* Admin routes */}
-             <Route path='/admin' element={<Adminindex/>}></Route>
+             <Route path='/admin/*' element={<Adminindex/>}></Route>
 
 
 
@@ -21,7 +21,7 @@ function App() {
              <Route path='/' element={<Userindex/>}></Route>
          </Routes>
       
-           <h1 className='text-3xl'>Project</h1>
+          
       
     </>
   )
