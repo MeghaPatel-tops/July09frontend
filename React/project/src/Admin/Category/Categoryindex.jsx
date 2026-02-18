@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addCat } from '../../Redux/Category';
+import { addCat, catDeleteByID, getCategoryById, getCategoryData } from '../../Redux/Category';
 
 function Categoryindex() {
 
     const [catdata,setCatData] = useState({});
-    const {isloading,error,catmsg}=useSelector((state)=>state.category);
+    const {isloading,error,catmsg,catArray,singleCat}=useSelector((state)=>state.category);
     const dispatch = useDispatch();
+    const [editid,setEditid]=useState(null);
 
     const handleChange = (e)=>{
         const {name,value}=e.target;
@@ -41,6 +42,19 @@ function Categoryindex() {
             console.log(catdata);
             dispatch(addCat(catdata))
     }
+
+    useEffect(()=>{
+         dispatch(getCategoryData());
+    },[catmsg])
+
+    const editCat = (eid)=>{
+          setEditid(eid);
+          dispatch(getCategoryById(eid));
+          setTimeout(() => {
+            setCatData(singleCat)
+          }, 2000);
+          
+    }
         
   return (
     <div>
@@ -68,7 +82,7 @@ function Categoryindex() {
         <div class="sm:col-span-3">
           <label for="first-name" class="block text-sm/6 font-medium text-gray-900">Category name</label>
           <div class="mt-2">
-            <input id="first-name" type="text" name="catname" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" onChange={handleChange}/>
+            <input id="first-name" type="text" name="catname" autocomplete="given-name" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" onChange={handleChange}  value={catdata.catname}/>
           </div>
         </div>
 
@@ -89,11 +103,57 @@ function Categoryindex() {
   </div>
 
   <div class="mt-6 flex items-center justify-end gap-x-6">
-    
-    <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={handleClick}>Save</button>
+     {
+
+        (editid != null) ?  <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={handleClick}>Update</button>
+        :
+         <button type="button" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={handleClick}>Save</button>
+
+     } 
+   
   </div>
 </form>
         </div>
+
+         <div className=" container mx-auto">
+          <h2 className='text-3xl'>Category Data</h2>
+              <table class="table-auto border border-collapse w-100">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Image</th>
+            <th colSpan={2}>Action</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          {
+            catArray && catArray.map((index,i)=>(
+               <tr >
+                <td className='p-2 text-center m-5'>{index.catname}</td>
+                <td className='p-2 text-center m-5'><img src={index.catimg} alt="" height={"100px"} width={"100px"} className='mx-auto'/></td>
+                <td>
+                  <button className='bg-red-400 text-white px-5 py-2' onClick={()=>{
+                    alert(index.id)
+                    dispatch(catDeleteByID(index.id))
+                  }}>Delete</button>
+                </td>
+                <td>
+                  <button className='bg-green-400 text-white px-5 py-2' onClick={()=>{
+                    editCat(index.id)
+                  }}>
+                      Edit
+                  </button>
+                </td>
+              </tr>
+            ))
+          }
+         
+         
+        </tbody>
+      </table>
+         </div>
+
     </div>
   )
 }
