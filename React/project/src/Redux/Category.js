@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 
 export const addCat = createAsyncThunk('addCat', async (data) => {
@@ -67,6 +67,25 @@ export const catDeleteByID= createAsyncThunk('catDeleteByID',async(cid)=>{
         }
     })
 
+export const updateCategory = createAsyncThunk('updateCategory',async(data)=>{
+    try {
+      
+        
+        const docRef= doc(db,"category",data.id);
+        const result = await setDoc(docRef,data.proObj,{merge:true});
+        if(result){
+            console.log(result);
+            
+            return result;
+
+        }
+    } catch (error) {
+        console.log(error);
+        
+        return error
+    }
+})
+
 export const categorySlice = createSlice(
     {
         name: 'category',
@@ -125,7 +144,18 @@ export const categorySlice = createSlice(
                 .addCase(getCategoryById.rejected, (state, action) => {
                     state.isloading = false;
                     state.error = action.payload;
-                });
+                })
+                 .addCase(updateCategory.pending, (state) => {
+                    state.isloading = true;
+                })
+                .addCase(updateCategory.fulfilled, (state, action) => {
+                     state.isloading = false;
+                     state.catmsg = "Updated";
+                })
+                .addCase(updateCategory.rejected, (state, action) => {
+                    state.isloading = false;
+                    state.error = action.payload;
+                })
         }
     }
 )

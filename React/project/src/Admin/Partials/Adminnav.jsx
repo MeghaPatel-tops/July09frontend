@@ -28,7 +28,7 @@ function Adminnav() {
             <a href="#" aria-current="page" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white">Dashboard</a>
           
             <NavLink to={'/admin/category'} className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Category</NavLink> 
-             <NavLink to={'/admin/category'} className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Product</NavLink> 
+             <NavLink to={'/admin/product'} className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Product</NavLink> 
               <NavLink to={'/admin/category'} className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Users</NavLink>           
             
            
