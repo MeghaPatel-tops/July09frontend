@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { addUsers } from '../Redux/Users';
+import { useNavigate } from 'react-router-dom';
 
 function Reg() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {usermsg,isloading,uerror} = useSelector((state)=>state.users)
     const [user,setUser]=useState({
         username:"",
         email:"",
@@ -64,13 +70,18 @@ function Reg() {
 
     const handleClick = ()=>{
         let flag = isValidate();
-       
+         if(flag){
+             dispatch(addUsers(user));
+             setTimeout(()=>{
+              navigate('/login')
+             },2000)
+         }
         
     }
 
     useEffect(()=>{
 
-    },[error])
+    },[error,isloading,usermsg])
   return (
     <div>
         <div class="h-full bg-gray-900">
@@ -92,6 +103,24 @@ function Reg() {
             </ul>    
         </div>:
         ''
+   }
+    {
+        isloading===true &&
+         <div className='bg-white text-black p-5'>
+            <p>Loading....</p>
+        </div>
+   }
+   {
+        usermsg &&
+         <div className='bg-white text-black p-5'>
+            <p>{usermsg}</p>
+        </div>
+   }
+   {
+        uerror &&
+         <div className='bg-white text-black p-5'>
+            <p className='text-red-500'>{uerror}</p>
+        </div>
    }
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
