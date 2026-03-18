@@ -100,7 +100,7 @@ export const productDeleteByID= createAsyncThunk('productDeleteByID',async(pid)=
 
 export const productSlice = createSlice(
     {
-        name: 'category',
+        name: 'product',
         initialState: {
             promsg: "",
             productArray: [],
