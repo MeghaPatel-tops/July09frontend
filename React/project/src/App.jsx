@@ -8,6 +8,8 @@ import Login from './User/Login'
 import Reg from './User/Reg'
 import Cat from './User/Cat'
 import { ProductFilterProvider } from './Context/FilterProduct'
+import Cartview from './User/Cartview'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +32,8 @@ function App() {
              <Route path='/login' element={<Login/>}></Route>
               <Route path='/registration' element={<Reg/>}></Route>
               <Route path='/test' element={<Cat/>}></Route>
+              <Route path='/cart' element={<Cartview />}></Route>
+              
               
          </Routes>
       

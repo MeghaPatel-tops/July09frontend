@@ -40,7 +40,12 @@ export const getUserAuth = createAsyncThunk('getUserAuth', async (data) => {
              return false
         }
         else{
-             return snapshot.docs[0].data();
+             const userDoc = snapshot.docs[0];
+
+            return {
+                id: userDoc.id,          // ✅ document ID
+                ...userDoc.data()       // ✅ document data
+            };
         }
         
       
@@ -107,6 +112,8 @@ export const userSlice = createSlice(
                           console.log(action.payload);
                           
                          localStorage.setItem('users',JSON.stringify(action.payload))
+                         console.log(action.payload);
+                         
                           state.usermsg="Login success"
                      }
                      else{

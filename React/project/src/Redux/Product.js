@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc,query,where } from "firebase/firestore";
 import { db } from "../Firebase/firebase";
 
 export const addProduct = createAsyncThunk('addProduct', async (data) => {
@@ -11,6 +11,24 @@ export const addProduct = createAsyncThunk('addProduct', async (data) => {
         if (res) {
             const result = {
                 msg: "Success"
+            };
+            return result
+        }
+    } catch (error) {
+        return error
+
+        console.log("firebas error", error.message);
+
+    }
+})
+export const addToCartProduct = createAsyncThunk('addToCartProduct', async (data) => {
+    try {
+        const res = await addDoc(collection(db, 'cart'), data);
+        console.log(res);
+
+        if (res) {
+            const result = {
+                msg: "Added in Cart"
             };
             return result
         }
@@ -50,6 +68,39 @@ export const getProductData = createAsyncThunk('getProductData', async () => {
     }
 }
 );
+
+export const getCartData= createAsyncThunk('getCartData',async(uid)=>{
+    try {
+        
+        const q = query(
+            collection (db, "cart"),
+            where("userId", "==", uid)
+        );
+
+        const snapShot = await getDocs(q);
+
+        const data = snapShot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+
+        const getCartData1 = async () =>
+            await Promise.all(
+                data.map(async item => ({
+                ...item,
+                product: (await getDoc(doc(db, "products", item.pid))).data()
+                }))
+            );
+
+        let final = await getCartData1();
+        console.log("in thunk ",final);
+        
+        return final;
+          
+    } catch (error) {
+        return error;
+    }
+})
 
 export const productDeleteByID= createAsyncThunk('productDeleteByID',async(pid)=>{
     try {
@@ -106,7 +157,8 @@ export const productSlice = createSlice(
             productArray: [],
             error: null,
             singleProduct: null,
-            isloading: false
+            isloading: false,
+            cartarray:[]
         },
         reducers: {
 
@@ -123,6 +175,18 @@ export const productSlice = createSlice(
 
                     state.error = action.payload;
                 })
+                .addCase(addToCartProduct.pending, (state) => {
+                state.isloading = true;
+            })
+                .addCase(addToCartProduct.fulfilled, (state, action) => {
+                    state.isloading = false;
+                    state.promsg = action.payload.msg;
+                })
+                .addCase(addToCartProduct.rejected, (state, action) => {
+
+                    state.error = action.payload;
+                })
+
 
                 .addCase(getProductData.pending, (state) => {
                     state.isloading = true;
@@ -157,17 +221,17 @@ export const productSlice = createSlice(
                     state.isloading = false;
                     state.error = action.payload;
                 })
-                //  .addCase(updateCategory.pending, (state) => {
-                //     state.isloading = true;
-                // })
-                // .addCase(updateCategory.fulfilled, (state, action) => {
-                //      state.isloading = false;
-                //      state.catmsg = "Updated";
-                // })
-                // .addCase(updateCategory.rejected, (state, action) => {
-                //     state.isloading = false;
-                //     state.error = action.payload;
-                // })
+                 .addCase(getCartData.pending, (state) => {
+                    state.isloading = true;
+                })
+                .addCase(getCartData.fulfilled, (state, action) => {
+                     state.isloading = false;
+                     state.cartarray= action.payload;
+                })
+                .addCase(getCartData.rejected, (state, action) => {
+                    state.isloading = false;
+                    state.error = action.payload;
+                })
         }
     }
 )

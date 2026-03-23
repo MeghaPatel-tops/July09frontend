@@ -1,21 +1,43 @@
 import React, { useContext, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductData } from '../Redux/Product';
+import { addToCartProduct, getProductData } from '../Redux/Product';
 import { ProductFilter } from '../Context/FilterProduct';
 import { log } from 'firebase/firestore/pipelines';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Product() {
-    const { productArray,isloading,error}= useSelector((state)=>state.product)
+    const user = JSON.parse(localStorage.getItem('users'));
+
+    const { productArray,isloading,error,promsg}= useSelector((state)=>state.product)
     const dispatch = useDispatch();
     const {filterCat,setFilterCat}= useContext(ProductFilter) 
-
-    console.log(productArray);
+    const navigate = useNavigate();
     
+    
+
+    const addincart = (pid)=>{
+          if(!user){
+             navigate('/login')
+          }
+          else{
+               const cartObj={
+                   userId:user.id,
+                   pid:pid,
+                   qty:1
+               }
+               dispatch(addToCartProduct(cartObj))
+               setTimeout(()=>{
+                   alert(promsg)
+               },2000)
+          }
+    }
      
     useEffect(()=>{
         dispatch(getProductData())
         
     },[])
+
+  
 
     const fileterProductsArray =useMemo(()=>{
          console.log(filterCat);
@@ -35,6 +57,7 @@ function Product() {
             {
                 isloading && <p className='text-2xl'>Loading.....</p>
             }
+           
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
 
@@ -43,19 +66,24 @@ function Product() {
       {
            fileterProductsArray && fileterProductsArray.map((index,i)=>(
         <div class="group relative  border rounded p-4">
-        <img src={index.pimage} alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-fit group-hover:opacity-75 lg:aspect-auto lg:h-50" />
+        <img src={index.pimage} alt="Front of men&#039;s Basic Tee in black." class="aspect-square w-full rounded-md bg-gray-200 object-fit group-hover:opacity-75  lg:h-50" />
         <div class="mt-4 flex justify-between ">
           <div>
             <h3 class="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" class="absolute inset-0"></span>
+              
+               
                 {index.pname.toUpperCase()}
-              </a>
+             
             </h3>
             <p class="mt-1 text-sm text-gray-500">{index.desciption}</p>
+           
           </div>
           <p class="text-sm font-medium text-gray-900">{index.price}</p>
         </div>
+        
+         <button className="bg-blue-400 px-2 rounded text-sm text-white" onClick={()=>{
+            addincart(index.id)
+         }}>AddToCart</button>
       </div>
            ))
       }
